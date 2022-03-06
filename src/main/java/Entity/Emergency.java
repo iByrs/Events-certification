@@ -1,9 +1,10 @@
 package Entity;
 
-import Enum.TypeOfEmergency;
+import Enum.*;
+import Observer.Subject;
 import Utility.TimestampEvent;
 
-public class Emergency {
+public class Emergency extends Subject {
 
     // TIPO DI EVENTO GENERATO
     private TypeOfEmergency emergency;
@@ -13,6 +14,7 @@ public class Emergency {
     public Emergency(TypeOfEmergency emergency) {
         this.emergency = emergency;
         this.timestamp = TimestampEvent.getTime();
+        sendNotify();
     }
 
     public TypeOfEmergency getEmergency() {
@@ -29,5 +31,15 @@ public class Emergency {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public void sendNotify() {
+        System.out.println("Attacco Switchboard");
+        attach(Switchboard.getInstance());
+        System.out.println("Invio Notifica");
+
+        Event event = new Event(this, TypeOfEvents.EMERGENCY);
+        setChanged();
+        notify(event);
     }
 }

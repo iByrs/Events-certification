@@ -15,10 +15,11 @@ public class Subject {
             return;
         }
         subscribers.stream().forEach( x -> x.update(this, event));
+        setChanged();
     }
 
     public void setChanged() {
-        this.changed = true;
+        this.changed = !changed;
     }
 
     public void attach(Observer o) {
