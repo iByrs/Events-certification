@@ -1,5 +1,6 @@
 package Entity;
 
+import Enum.*;
 // DISPOSITIVO CHE SI OCCUPA DI INVIARE LE NOTIFICHE
 public class Device {
 
@@ -14,7 +15,7 @@ public class Device {
     }
 
     public Event newNotify() {
-        Event event = new Event("Mission: "+mission+" "+lines.getLine());
+        Event event = new Event("Mission: "+mission+" "+lines.getLine(), TypeOfEvents.MESSAGE);
         return event;
     }
 
