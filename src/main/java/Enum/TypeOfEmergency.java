@@ -1,7 +1,5 @@
 package Enum;
 
-public enum KindOfEmergency {
-    FIRE,
-    ROBBERY,
-    FIGHTS
+public enum TypeOfEmergency {
+    HOSPITAL
 }

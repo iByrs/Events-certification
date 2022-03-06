@@ -1,6 +1,6 @@
 package Enum;
 
-public enum KindOfEvents {
+public enum TypeOfEvents {
 
     REQUEST_EMERGENCY,
     REQUEST_CREATION,
@@ -8,7 +8,7 @@ public enum KindOfEvents {
     REQUEST_MISSION,
     MISSION_DONE,
     BLOCKCHAIN,
-    MESSAGE
-
+    MESSAGE,
+    EMERGENCY
 
 }
