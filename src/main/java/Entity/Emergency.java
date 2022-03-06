@@ -1,25 +1,25 @@
 package Entity;
 
-import Enum.KindOfEmergency;
+import Enum.TypeOfEmergency;
 import Utility.TimestampEvent;
 
 public class Emergency {
 
     // TIPO DI EVENTO GENERATO
-    private KindOfEmergency emergency;
+    private TypeOfEmergency emergency;
     // TIMESTAMP DI CREAZIONE
     private String timestamp;
 
-    public Emergency(KindOfEmergency emergency) {
+    public Emergency(TypeOfEmergency emergency) {
         this.emergency = emergency;
         this.timestamp = TimestampEvent.getTime();
     }
 
-    public KindOfEmergency getEmergency() {
+    public TypeOfEmergency getEmergency() {
         return emergency;
     }
 
-    public void setEmergency(KindOfEmergency emergency) {
+    public void setEmergency(TypeOfEmergency emergency) {
         this.emergency = emergency;
     }
 

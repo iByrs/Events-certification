@@ -1,17 +1,33 @@
 package Entity;
 
 import Utility.TimestampEvent;
+import Enum.*;
 
 public class Event {
-    private String message;
-    private String timestamp;
 
-    public Event(String message) {
+    private Object message;
+    private String timestamp;
+    private TypeOfEvents type;
+
+    public Event(Object message, TypeOfEvents type) {
         this.message = message;
+        this.type = type;
         this.timestamp = TimestampEvent.getTime();
     }
 
     public String getEvent() {
-        return message + " " + timestamp;
+        return message.toString() + " " + timestamp;
+    }
+
+    public TypeOfEvents getTypeOfEvent() {
+        return type;
+    }
+
+    public Object getMessage() {
+        return message;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
     }
 }
