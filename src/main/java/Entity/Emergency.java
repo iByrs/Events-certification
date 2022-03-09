@@ -34,10 +34,7 @@ public class Emergency extends Subject {
     }
 
     public void sendNotify() {
-        System.out.println("Attacco Switchboard");
         attach(Switchboard.getInstance());
-        System.out.println("Invio Notifica");
-
         Event event = new Event(this, TypeOfEvents.EMERGENCY);
         setChanged();
         notify(event);

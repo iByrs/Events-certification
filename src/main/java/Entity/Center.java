@@ -1,17 +1,17 @@
 package Entity;
 
+import Controller.TeamController;
 import Observer.*;
 import Enum.*;
 
-import static Enum.TypeOfEvents.REQUEST_EMERGENCY;
+import static Enum.TypeOfEvents.*;
 
 // SI OCCUPA DI RICEVERE GLI EVENTI E SMISTARLI CORRETTAMENTE
 public class Center extends Subject implements Observer{
 
     private static Center center;
 
-    public Center() {
-
+    private Center() {
     }
 
     public static Center getInstance() {
@@ -27,16 +27,18 @@ public class Center extends Subject implements Observer{
         TypeOfEvents type = event.getTypeOfEvent();
         switch (type) {
             case REQUEST_EMERGENCY:
-                System.out.println("Messaggio arrivato");
+                System.out.println("Richiesta di soccorso arrivata alla centrale, contatto la centrale di "+ event.getMessage());
+                Event e = new Event(event.getMessage(), REQUEST_TEAM);
+                setChanged();
+                notify(e);
                 break;
             case CREATION_DONE:
-                break;
+                return;
             case MISSION_DONE:
-                break;
+                return;
             default:
-                break;
+                return;
         }
-        return;
     }
 
 

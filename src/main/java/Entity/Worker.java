@@ -29,6 +29,8 @@ public class Worker {
     public void sendEvent() {
         device.newNotify();
     }
-
+    public String toString() {
+        return entity.toString();
+    }
 
 }

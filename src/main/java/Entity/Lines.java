@@ -1,5 +1,6 @@
 package Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import Enum.TypeOfJobs;
 public class Lines {
@@ -14,6 +15,7 @@ public class Lines {
         this.entity = e;
         this.role = role;
         counter = 0;
+        lines = new ArrayList<>();
         setupLines();
     }
 

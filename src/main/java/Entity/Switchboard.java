@@ -1,5 +1,6 @@
 package Entity;
 
+import Controller.TeamController;
 import Observer.Observer;
 import Observer.Subject;
 import Enum.*;
@@ -10,7 +11,6 @@ public class Switchboard extends Subject implements Observer {
     private static Switchboard switchboard;
 
     private Switchboard() {
-
     }
 
     public static Switchboard getInstance() {

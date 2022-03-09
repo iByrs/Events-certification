@@ -3,6 +3,7 @@ package Controller;
 import Entity.Event;
 import Entity.Worker;
 import Entity.Team;
+import Entity.Center;
 import Observer.Observer;
 import Observer.Subject;
 import Repository.Repository;
@@ -37,6 +38,7 @@ public class TeamController extends Subject implements Observer {
         this.id = 0L;
         setupEntities();
         setupWorkers();
+        attach(Center.getInstance());
         System.out.println("TeamController download done!");
     }
 
@@ -89,26 +91,32 @@ public class TeamController extends Subject implements Observer {
     // NOTIFICA DI CREAZIONE
     @Override
     public void update(Object obj, Event event) {
+        if(event.getTypeOfEvent() != TypeOfEvents.REQUEST_TEAM) {
+            return;
+        }
 
-        TypeOfEvents typeOfEvent = event.getTypeOfEvent();
-        switch ( typeOfEvent ) {
-            case TEAM_DOCTOR:
+        TypeOfJobs typeOfRequest = (TypeOfJobs) event.getMessage();
+        switch ( typeOfRequest ) {
+            case DOCTOR:
                 if( checkTeamAvailability(doctors) ) {
                     if (checkDriverAvailability()) {
-
+                        System.out.println("Trovata disponibilità, creo e invio indietro alla centrale");
+                        setChanged();
+                        notify( new Event(getTeam(doctors), TypeOfEvents.CREATION_DONE) );
+                        return;
                     }
                 }
                 break;
-            case TEAM_FIREMAN:
+            case FIREMAN:
 
                 break;
-            case TEAM_POLICEMAN:
+            case POLICEMAN:
 
                 break;
             default:
                 return;
         }
-
+        notify( new Event("Creation Failed", TypeOfEvents.CREATION_FAILED));
     }
 
     public boolean checkTeamAvailability(List<Worker> list) {
@@ -161,7 +169,5 @@ public class TeamController extends Subject implements Observer {
         Team team = new Team(id++, findFreeDriver(), findFreeWoker(workers), findFreeWoker(workers));
         return team;
     }
-
-
 
 }

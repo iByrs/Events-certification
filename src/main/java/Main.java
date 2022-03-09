@@ -1,14 +1,11 @@
 import Controller.TeamController;
-import Entity.Center;
-import Entity.Emergency;
-import Entity.Switchboard;
-import Entity.Team;
-import Enum.*;
+
+import Facade.Facade;
 import Repository.Repository;
 
 public class Main {
     public static void main(String[] args) {
-        Repository repository = Repository.getInstance();
-        TeamController teamController = TeamController.getInstance();
+        Facade facade = new Facade();
+        facade.sendEvent();
     }
 }
