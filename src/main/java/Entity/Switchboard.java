@@ -30,7 +30,7 @@ public class Switchboard extends Subject implements Observer {
         TypeOfEmergency emergency = ((Emergency) subject).getEmergency();
         switch (emergency) {
             case HOSPITAL:
-                Event newEvent = new Event(Jobs.DOCTOR, TypeOfEvents.REQUEST_EMERGENCY);
+                Event newEvent = new Event(TypeOfJobs.DOCTOR, TypeOfEvents.REQUEST_EMERGENCY);
                 setChanged();
                 notify(newEvent);
                 break;

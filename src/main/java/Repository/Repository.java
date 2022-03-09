@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Repository {
 
-    private final String DB_URL = "jdbc:mysql://localhost:3306/Storage";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/Repository";
     private final String DB_USER = "root";
     private final String DB_PSW = "root";
     private Connection connection;
@@ -14,6 +14,7 @@ public class Repository {
     private Repository() {
         connection = null;
         query = null;
+        databaseStartConnection();
     }
 
     public static Repository getInstance() {

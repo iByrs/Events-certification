@@ -17,6 +17,8 @@ public class Team {
         this.driver = driver;
         this.entity1 = entity1;
         this.entity2 = entity2;
+        entity1.setupForWork(true, id);
+        entity2.setupForWork(false, id);
     }
 
     public void sendEvents() throws InterruptedException {

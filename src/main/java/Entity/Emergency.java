@@ -42,4 +42,5 @@ public class Emergency extends Subject {
         setChanged();
         notify(event);
     }
+
 }

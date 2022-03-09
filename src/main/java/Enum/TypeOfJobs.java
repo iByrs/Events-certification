@@ -1,6 +1,6 @@
 package Enum;
 
-public enum Jobs {
+public enum TypeOfJobs {
     POLICEMAN,
     FIREMAN,
     DOCTOR,

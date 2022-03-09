@@ -3,7 +3,9 @@ package Enum;
 public enum TypeOfEvents {
 
     REQUEST_EMERGENCY,
-    REQUEST_CREATION,
+    TEAM_DOCTOR,
+    TEAM_POLICEMAN,
+    TEAM_FIREMAN,
     CREATION_DONE,
     REQUEST_MISSION,
     MISSION_DONE,

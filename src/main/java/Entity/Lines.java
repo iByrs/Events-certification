@@ -1,7 +1,7 @@
 package Entity;
 
 import java.util.List;
-import Enum.Jobs;
+import Enum.TypeOfJobs;
 public class Lines {
     // QUESTA CLASSE SI OCCUPERà DI DEFINIRE LE CONVERSAZIONI
     // 4 FRASI CIASCUNA CLASSE
@@ -18,7 +18,7 @@ public class Lines {
     }
 
     private void setupLines() {
-        Jobs job = entity.getJob();
+        TypeOfJobs job = entity.getJob();
         switch( job ) {
             case DOCTOR:
                 setupDoctorLines();

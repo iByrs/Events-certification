@@ -6,16 +6,16 @@ public class Device {
 
     private Lines lines;
     private Entity entity;
-    private String mission;
+    private long id_team;
 
-    public Device(Entity e, String mission, boolean role) {
+    public Device(Entity e, long id_team, boolean role) {
         this.entity = e;
-        this.mission = mission;
+        this.id_team = id_team;
         this.lines = new Lines(entity, role);
     }
 
     public Event newNotify() {
-        Event event = new Event("Mission: "+mission+" "+lines.getLine(), TypeOfEvents.MESSAGE);
+        Event event = new Event("Mission: "+id_team+" "+lines.getLine(), TypeOfEvents.MESSAGE);
         return event;
     }
 
