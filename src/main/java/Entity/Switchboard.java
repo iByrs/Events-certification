@@ -39,4 +39,10 @@ public class Switchboard extends Subject implements Observer {
         }
     }
 
+    @Override
+    public void update(int id, Object obj, Event event) {
+        //TODO
+        return;
+    }
+
 }

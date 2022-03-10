@@ -9,6 +9,7 @@ import Observer.Subject;
 import Repository.Repository;
 import Enum.*;
 import Entity.Entity;
+import Request.TeamCreationRequest;
 
 import java.nio.channels.WritePendingException;
 import java.sql.ResultSet;
@@ -87,14 +88,20 @@ public class TeamController extends Subject implements Observer {
             }
         }
     }
-
     // NOTIFICA DI CREAZIONE
     @Override
     public void update(Object obj, Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.REQUEST_TEAM) {
-            return;
+            if(event.getTypeOfEvent() == TypeOfEvents.ATTACH) {
+                attach((TeamCreationRequest)obj);
+                return;
+            }else if(event.getTypeOfEvent() == TypeOfEvents.DETTACH){
+                detach((TeamCreationRequest)obj);
+                return;
+            } else {
+                return;
+            }
         }
-
         TypeOfJobs typeOfRequest = (TypeOfJobs) event.getMessage();
         switch ( typeOfRequest ) {
             case DOCTOR:
@@ -108,18 +115,38 @@ public class TeamController extends Subject implements Observer {
                 }
                 break;
             case FIREMAN:
-
+                if( checkTeamAvailability(firemen) ) {
+                    if (checkDriverAvailability()) {
+                        System.out.println("Trovata disponibilità, creo e invio indietro alla centrale");
+                        setChanged();
+                        notify( new Event(getTeam(firemen), TypeOfEvents.CREATION_DONE) );
+                        return;
+                    }
+                }
                 break;
             case POLICEMAN:
-
+                if( checkTeamAvailability(policemen) ) {
+                    if (checkDriverAvailability()) {
+                        System.out.println("Trovata disponibilità, creo e invio indietro alla centrale");
+                        setChanged();
+                        notify( new Event(getTeam(policemen), TypeOfEvents.CREATION_DONE) );
+                        return;
+                    }
+                }
                 break;
             default:
                 return;
         }
-        notify( new Event("Creation Failed", TypeOfEvents.CREATION_FAILED));
+        notify( new Event(null, TypeOfEvents.CREATION_FAILED));
     }
 
-    public boolean checkTeamAvailability(List<Worker> list) {
+    @Override
+    public void update(int id, Object obj, Event event) {
+        // TODO
+        return;
+    }
+
+    private boolean checkTeamAvailability(List<Worker> list) {
         boolean check = false;
         for (Worker worker : list) {
             if( worker.getAvailability() == true ) {
@@ -133,7 +160,7 @@ public class TeamController extends Subject implements Observer {
         return false;
     }
 
-    public boolean checkDriverAvailability() {
+    private boolean checkDriverAvailability() {
         for (Worker worker : drivers) {
             if( worker.getAvailability() == true ) {
                 return true;
@@ -165,7 +192,7 @@ public class TeamController extends Subject implements Observer {
         return null;
     }
 
-    private Team getTeam(List<Worker> workers)  {
+    private Team getTeam(List<Worker> workers) {
         Team team = new Team(id++, findFreeDriver(), findFreeWoker(workers), findFreeWoker(workers));
         return team;
     }

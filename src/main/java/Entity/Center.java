@@ -33,12 +33,21 @@ public class Center extends Subject implements Observer{
                 notify(e);
                 break;
             case CREATION_DONE:
+                System.out.println("GRAZIE! Avvio la missione");
                 return;
             case MISSION_DONE:
+                return;
+            case CREATION_FAILED:
+                System.out.println("Peccato :(");
                 return;
             default:
                 return;
         }
+    }
+
+    @Override
+    public void update(int id, Object obj, Event event) {
+        return;
     }
 
 

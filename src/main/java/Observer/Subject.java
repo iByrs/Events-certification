@@ -19,7 +19,7 @@ public class Subject {
     }
 
     public void setChanged() {
-        this.changed = !changed;
+        this.changed = true;
     }
 
     public void attach(Observer o) {
