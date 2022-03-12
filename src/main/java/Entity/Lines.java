@@ -71,6 +71,7 @@ public class Lines {
     }
 
     private void setupDriverLines() {
+        System.out.println("DRIVER");
         lines.add("Mi dirigo verso il luogo del misfatto.");
         lines.add("Arrivati nel luogo del misfatto. Spengo.");
         lines.add("Mi dirigo alla centrale, per depositare i messaggi.");

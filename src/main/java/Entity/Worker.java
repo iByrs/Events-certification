@@ -14,7 +14,7 @@ public class Worker {
         this.device = null;
     }
 
-    public void setupForWork(boolean role, long idTeam) {
+    public void setupForWork(boolean role, int idTeam) {
         this.device = new Device(entity, idTeam, role);
         this.availability = false;
     }
@@ -26,6 +26,7 @@ public class Worker {
     public void setAvailability(boolean state) {
         this.availability = state;
     }
+
     public void sendEvent() {
         device.newNotify();
     }

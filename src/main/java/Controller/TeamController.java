@@ -10,8 +10,6 @@ import Repository.Repository;
 import Enum.*;
 import Entity.Entity;
 import Request.TeamCreationRequest;
-
-import java.nio.channels.WritePendingException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ public class TeamController extends Subject implements Observer {
     private List<Worker> doctors;
     private List<Worker> drivers;
     private List<Entity> entities;
-    private long id;
+    private int id;
 
 
     private TeamController() {
@@ -36,7 +34,7 @@ public class TeamController extends Subject implements Observer {
         doctors = new ArrayList<Worker>();
         drivers = new ArrayList<Worker>();
         policemen = new ArrayList<Worker>();
-        this.id = 0L;
+        this.id = 0;
         setupEntities();
         setupWorkers();
         attach(Center.getInstance());
@@ -90,60 +88,74 @@ public class TeamController extends Subject implements Observer {
     }
     // NOTIFICA DI CREAZIONE
     @Override
-    public void update(Object obj, Event event) {
+    public void update(int id, Object obj, Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.REQUEST_TEAM) {
-            if(event.getTypeOfEvent() == TypeOfEvents.ATTACH) {
-                attach((TeamCreationRequest)obj);
-                return;
-            }else if(event.getTypeOfEvent() == TypeOfEvents.DETTACH){
-                detach((TeamCreationRequest)obj);
-                return;
-            } else {
-                return;
-            }
+            return;
         }
         TypeOfJobs typeOfRequest = (TypeOfJobs) event.getMessage();
         switch ( typeOfRequest ) {
             case DOCTOR:
-                if( checkTeamAvailability(doctors) ) {
-                    if (checkDriverAvailability()) {
-                        System.out.println("Trovata disponibilità, creo e invio indietro alla centrale");
-                        setChanged();
-                        notify( new Event(getTeam(doctors), TypeOfEvents.CREATION_DONE) );
-                        return;
-                    }
-                }
-                break;
-            case FIREMAN:
-                if( checkTeamAvailability(firemen) ) {
-                    if (checkDriverAvailability()) {
-                        System.out.println("Trovata disponibilità, creo e invio indietro alla centrale");
-                        setChanged();
-                        notify( new Event(getTeam(firemen), TypeOfEvents.CREATION_DONE) );
-                        return;
-                    }
-                }
-                break;
-            case POLICEMAN:
-                if( checkTeamAvailability(policemen) ) {
-                    if (checkDriverAvailability()) {
-                        System.out.println("Trovata disponibilità, creo e invio indietro alla centrale");
-                        setChanged();
-                        notify( new Event(getTeam(policemen), TypeOfEvents.CREATION_DONE) );
-                        return;
-                    }
-                }
-                break;
-            default:
+                System.out.println("Richiesta arrivata");
+                createNewTeam(doctors, TypeOfJobs.DOCTOR);
                 return;
+            case FIREMAN:
+                createNewTeam(firemen, TypeOfJobs.FIREMAN);
+                return;
+            case POLICEMAN:
+                createNewTeam(policemen, TypeOfJobs.FIREMAN);
+                return;
+            default:
+                break;
         }
-        notify( new Event(null, TypeOfEvents.CREATION_FAILED));
     }
 
     @Override
-    public void update(int id, Object obj, Event event) {
-        // TODO
+    public void update(Object obj, Event event) {
+        if(event.getTypeOfEvent() == TypeOfEvents.ATTACH) {
+            System.out.println("Attach avvenuto con successo");
+            attach((TeamCreationRequest)event.getMessage());
+        }else if(event.getTypeOfEvent() == TypeOfEvents.DETTACH){
+            System.out.println("Detach avvenuto con successo");
+            detach((TeamCreationRequest)event.getMessage());
+        }else if(event.getTypeOfEvent() == TypeOfEvents.MISSION_DONE) {
+            Team team = (Team) event.getMessage();
+            // LIBERIAMO LE ENTITA
+            offDuty(team);
+            System.out.println("Squadra liberata");
+        }
         return;
+    }
+
+    private void offDuty(Team team) {
+        switch (team.getTypeOfTeam()) {
+            case DOCTOR:
+                freeWorker(team.getEntity1());
+                freeWorker(team.getEntity2());
+                freeWorker(team.getDriver());
+                break;
+            case POLICEMAN:
+                freeWorker(policemen, team.getEntity1());
+                freeWorker(policemen, team.getEntity1());
+                freeWorker(drivers, team.getDriver());
+                break;
+            case FIREMAN:
+                freeWorker(firemen, team.getEntity1());
+                freeWorker(firemen, team.getEntity1());
+                freeWorker(drivers, team.getDriver());
+                break;
+        }
+    }
+
+    private void freeWorker(List<Worker> workers, Worker worker) {
+        for(Worker e: workers) {
+            if(worker == e) {
+                System.out.println("Ciao ciao");
+                e.setAvailability(true);
+            }
+        }
+    }
+    private void freeWorker(Worker worker) {
+        worker.setAvailability(true);
     }
 
     private boolean checkTeamAvailability(List<Worker> list) {
@@ -158,6 +170,18 @@ public class TeamController extends Subject implements Observer {
             }
         }
         return false;
+    }
+
+    private void createNewTeam(List<Worker> list, TypeOfJobs typeOfTeam) {
+        if( checkTeamAvailability(list) ) {
+            if (checkDriverAvailability()) {
+                System.out.println("Trovata disponibilità, creo e invio indietro alla centrale");
+                notify( id, new Event(getTeam(list, typeOfTeam), TypeOfEvents.CREATION_DONE) );
+                return;
+            }
+        }
+        System.out.println("Disponibilità non trovata");
+        notify( id, new Event(null, TypeOfEvents.CREATION_FAILED));
     }
 
     private boolean checkDriverAvailability() {
@@ -192,8 +216,8 @@ public class TeamController extends Subject implements Observer {
         return null;
     }
 
-    private Team getTeam(List<Worker> workers) {
-        Team team = new Team(id++, findFreeDriver(), findFreeWoker(workers), findFreeWoker(workers));
+    private Team getTeam(List<Worker> workers, TypeOfJobs typeOfTeam) {
+        Team team = new Team(id++, findFreeWoker(drivers), findFreeWoker(workers), findFreeWoker(workers), typeOfTeam);
         return team;
     }
 

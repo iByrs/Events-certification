@@ -4,9 +4,8 @@ import Facade.Facade;
 import Repository.Repository;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Facade facade = new Facade();
-        facade.sendEvent();
         facade.sendEvent();
     }
 }

@@ -36,7 +36,6 @@ public class Emergency extends Subject {
     public void sendNotify() {
         attach(Switchboard.getInstance());
         Event event = new Event(this, TypeOfEvents.EMERGENCY);
-        setChanged();
         notify(event);
     }
 

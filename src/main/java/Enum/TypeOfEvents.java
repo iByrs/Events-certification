@@ -6,6 +6,7 @@ public enum TypeOfEvents {
     REQUEST_TEAM,
     CREATION_DONE,
     CREATION_FAILED,
+    TEAM_CREATION_DONE,
     ATTACH,
     DETTACH,
     REQUEST_MISSION,
