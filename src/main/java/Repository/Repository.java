@@ -1,10 +1,12 @@
 package Repository;
 
+import Utility.Logger;
+
 import java.sql.*;
 
 public class Repository {
 
-    private final String DB_URL = "jdbc:mysql://localhost:3306/Storage";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/Repository";
     private final String DB_USER = "root";
     private final String DB_PSW = "root";
     private Connection connection;
@@ -14,6 +16,7 @@ public class Repository {
     private Repository() {
         connection = null;
         query = null;
+        databaseStartConnection();
     }
 
     public static Repository getInstance() {
@@ -29,16 +32,16 @@ public class Repository {
 
     private boolean databaseStartConnection() {
         try {
-            System.out.println("Trying to connect to database on"+ DB_URL +".");
+            Logger.out(true,"Trying to connect to database on"+ DB_URL +".");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PSW);
-            System.out.println("Connection to database successfully.");
+            Logger.out(true, "Connection to database successfully.");
             query = connection.createStatement();
             query.setQueryTimeout(30);
-            System.out.println("Setted query timeout 30 second.");
+            Logger.out(true, "Setted query timeout 30 second.");
             return true;
         } catch (SQLException error) {
-            System.out.println("Trying to connect to database failure.");
-            System.err.println(error.getMessage());
+            Logger.out(true, "Trying to connect to database failure.");
+            Logger.out(true, error.getMessage());
         }
         return false;
     }

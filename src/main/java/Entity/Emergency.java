@@ -1,9 +1,12 @@
 package Entity;
 
-import Enum.TypeOfEmergency;
+import Enum.*;
+import Observer.Subject;
+import Utility.Logger;
 import Utility.TimestampEvent;
+import com.mysql.cj.log.Log;
 
-public class Emergency {
+public class Emergency extends Subject {
 
     // TIPO DI EVENTO GENERATO
     private TypeOfEmergency emergency;
@@ -11,8 +14,10 @@ public class Emergency {
     private String timestamp;
 
     public Emergency(TypeOfEmergency emergency) {
+        Logger.out(false, "New emergency created. Notify the switchboard. Emergency ->" + emergency);
         this.emergency = emergency;
         this.timestamp = TimestampEvent.getTime();
+        sendNotify();
     }
 
     public TypeOfEmergency getEmergency() {
@@ -30,4 +35,11 @@ public class Emergency {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+    public void sendNotify() {
+        attach(Switchboard.getInstance());
+        Event event = new Event(this, TypeOfEvents.EMERGENCY);
+        notify(event);
+    }
+
 }

@@ -1,11 +1,11 @@
 package Entity;
-import Enum.Jobs;
+import Enum.TypeOfJobs;
 
 public class Entity {
 
     private Long id;
     private String name, surname;
-    private Jobs job;
+    private TypeOfJobs job;
 
     public Entity() {
 
@@ -15,7 +15,7 @@ public class Entity {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.job = Jobs.valueOf(job);
+        this.job = TypeOfJobs.valueOf(job);
     }
 
     public Long getId() {
@@ -42,19 +42,15 @@ public class Entity {
         this.surname = surname;
     }
 
-    public Jobs getJob() {
+    public TypeOfJobs getJob() {
         return job;
     }
 
-    public void setJob(Jobs job) {
+    public void setJob(TypeOfJobs job) {
         this.job = job;
     }
 
     public String toString() {
-        return "id:"+id+"/"+job+":"+name+":"+surname;
+        return "id:"+id+"_"+job+"_"+name+"_"+surname;
     }
 }
-
-// ENTITY
-// ATTRIBUTI DI LAVORO
-//

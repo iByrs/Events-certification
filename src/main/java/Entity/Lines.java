@@ -1,7 +1,8 @@
 package Entity;
 
+import java.util.ArrayList;
 import java.util.List;
-import Enum.Jobs;
+import Enum.TypeOfJobs;
 public class Lines {
     // QUESTA CLASSE SI OCCUPERà DI DEFINIRE LE CONVERSAZIONI
     // 4 FRASI CIASCUNA CLASSE
@@ -14,11 +15,12 @@ public class Lines {
         this.entity = e;
         this.role = role;
         counter = 0;
+        lines = new ArrayList<>();
         setupLines();
     }
 
     private void setupLines() {
-        Jobs job = entity.getJob();
+        TypeOfJobs job = entity.getJob();
         switch( job ) {
             case DOCTOR:
                 setupDoctorLines();
@@ -69,6 +71,7 @@ public class Lines {
     }
 
     private void setupDriverLines() {
+        System.out.println("DRIVER");
         lines.add("Mi dirigo verso il luogo del misfatto.");
         lines.add("Arrivati nel luogo del misfatto. Spengo.");
         lines.add("Mi dirigo alla centrale, per depositare i messaggi.");

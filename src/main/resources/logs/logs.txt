@@ -1,0 +1,49 @@
+2022-03-14 20:34:31.528 -> Trying to connect to database onjdbc:mysql://localhost:3306/Repository.
+2022-03-14 20:34:32.049 -> Connection to database successfully.
+2022-03-14 20:34:32.055 -> Setted query timeout 30 second.
+2022-03-14 20:34:32.104 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-14 20:34:32.106 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-14 20:34:32.107 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@27add713
+2022-03-14 20:34:32.108 -> TeamController:  Check done. Team created.
+2022-03-14 20:34:32.111 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
+2022-03-14 20:34:32.111 -> Mission: 0 id:1_DOCTOR_Willy_Wally Visito l incidentato.
+2022-03-14 20:34:32.111 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
+2022-03-14 20:34:32.613 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
+2022-03-14 20:34:32.613 -> Mission: 0 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
+2022-03-14 20:34:32.613 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
+2022-03-14 20:34:33.112 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-14 20:34:33.112 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-14 20:34:33.113 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@2f57bd9c
+2022-03-14 20:34:33.113 -> TeamController: Check done. Team not created. Wait. 
+2022-03-14 20:34:33.114 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
+2022-03-14 20:34:33.114 -> Mission: 0 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
+2022-03-14 20:34:33.114 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
+2022-03-14 20:34:33.117 -> TeamThread 1: TeamController doesn't create a new team. Wait.
+2022-03-14 20:34:33.62 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
+2022-03-14 20:34:33.62 -> Mission: 0 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
+2022-03-14 20:34:33.62 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-14 20:34:34.118 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-14 20:34:34.118 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-14 20:34:34.119 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@3304d9f8
+2022-03-14 20:34:34.119 -> TeamController: Check done. Team not created. Wait. 
+2022-03-14 20:34:34.119 -> TeamThread 1: TeamController doesn't create a new team. Wait.
+2022-03-14 20:34:34.139 -> Center: Re-entry permit confirmed for the team Team 0 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
+2022-03-14 20:34:34.14 -> TeamController: Team no longer busy.
+2022-03-14 20:34:35.12 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-14 20:34:35.12 -> Entity.Event@22e02d87
+2022-03-14 20:34:35.121 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-14 20:34:35.121 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@3dbc42f4
+2022-03-14 20:34:35.122 -> TeamController: Check done. Team not created. Wait. 
+2022-03-14 20:34:35.122 -> TeamThread 1: TeamController doesn't create a new team. Wait.
+2022-03-14 20:34:36.12 -> Entity.Event@3dc331e8
+2022-03-14 20:34:36.121 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-14 20:34:36.122 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-14 20:34:36.122 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@bd9cc98
+2022-03-14 20:34:36.122 -> TeamController: Check done. Team not created. Wait. 
+2022-03-14 20:34:36.122 -> TeamThread 1: TeamController doesn't create a new team. Wait.
+2022-03-14 20:34:37.123 -> Entity.Event@337bbb33
+2022-03-14 20:34:37.123 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-14 20:34:37.124 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-14 20:34:37.124 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@3a7f78b1
+2022-03-14 20:34:37.125 -> TeamController: Check done. Team not created. Wait. 
+2022-03-14 20:34:37.125 -> TeamThread 1: TeamController doesn't create a new team. Wait.

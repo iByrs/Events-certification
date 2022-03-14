@@ -11,10 +11,11 @@ public class Worker {
     public Worker(Entity e) {
         this.entity = e;
         this.availability = true;
+        this.device = null;
     }
 
-    public void setupForWork(boolean role, String idMission) {
-        this.device = new Device(entity, idMission, role);
+    public void setupForWork(boolean role, int idTeam) {
+        this.device = new Device(entity, idTeam, role);
         this.availability = false;
     }
 
@@ -22,9 +23,15 @@ public class Worker {
         return availability;
     }
 
+    public void setAvailability(boolean state) {
+        this.availability = state;
+    }
+
     public void sendEvent() {
         device.newNotify();
     }
-
+    public String toString() {
+        return entity.toString();
+    }
 
 }

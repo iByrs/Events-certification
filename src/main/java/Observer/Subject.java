@@ -7,18 +7,19 @@ import java.util.List;
 
 public class Subject {
 
-    private boolean changed = false;
     private List<Observer> subscribers = new ArrayList<>();
 
     public void notify(Event event) {
-        if(!changed) {
-            return;
-        }
         subscribers.stream().forEach( x -> x.update(this, event));
     }
-
-    public void setChanged() {
-        this.changed = true;
+    public void notify(int id, Event event) {
+        subscribers.stream().forEach( x -> {
+            try {
+                x.update(id, this, event);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void attach(Observer o) {

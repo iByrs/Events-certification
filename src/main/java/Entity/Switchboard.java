@@ -10,10 +10,9 @@ public class Switchboard extends Subject implements Observer {
     private static Switchboard switchboard;
 
     private Switchboard() {
-
     }
 
-    public Switchboard getInstance() {
+    public static Switchboard getInstance() {
         if(switchboard == null) {
             switchboard = new Switchboard();
         }
@@ -22,19 +21,26 @@ public class Switchboard extends Subject implements Observer {
 
 
     @Override
-    public void update(Subject subject, Event event) {
+    public void update(Object subject, Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.EMERGENCY ) {
             return;
         }
-
-        switch (event.getMessage().toString()) {
-            case "HOSPITAL":
-                Event newEvent = new Event(Jobs.DOCTOR, TypeOfEvents.REQUEST_EMERGENCY);
+        // SE SUPERA L'IF IL SUBJECT è UN EMERGENCY
+        TypeOfEmergency emergency = ((Emergency) subject).getEmergency();
+        switch (emergency) {
+            case HOSPITAL:
+                Event newEvent = new Event(TypeOfJobs.DOCTOR, TypeOfEvents.REQUEST_EMERGENCY);
                 notify(newEvent);
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void update(int id, Object obj, Event event) {
+        //TODO
+        return;
     }
 
 }
