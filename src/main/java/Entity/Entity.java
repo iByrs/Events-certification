@@ -51,10 +51,6 @@ public class Entity {
     }
 
     public String toString() {
-        return "id:"+id+"/"+job+":"+name+":"+surname;
+        return "id:"+id+"_"+job+"_"+name+"_"+surname;
     }
 }
-
-// ENTITY
-// ATTRIBUTI DI LAVORO
-//

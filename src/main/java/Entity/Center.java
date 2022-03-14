@@ -1,9 +1,9 @@
 package Entity;
 
-import Controller.TeamController;
 import Observer.*;
 import Enum.*;
 import Request.TeamCreationRequest;
+import Utility.Logger;
 
 import static Enum.TypeOfEvents.*;
 
@@ -11,12 +11,10 @@ import static Enum.TypeOfEvents.*;
 public class Center extends Subject implements Observer{
 
     private static Center center;
-    private int team_counter;
-    private int mission_counter;
+    private int counter;
 
     private Center() {
-        team_counter = 0;
-        mission_counter = 0;
+        counter = 0;
     }
 
     public static Center getInstance() {
@@ -26,54 +24,52 @@ public class Center extends Subject implements Observer{
         return center;
     }
 
-
     @Override
     public void update(Object subject, Event event) {
-        TypeOfEvents type = event.getTypeOfEvent();
-        switch (type) {
+        TypeOfEvents typeEvent = event.getTypeOfEvent();
+        switch (typeEvent) {
             case REQUEST_EMERGENCY:
                 sendRequestNewTeam(event);
                 break;
+            case MISSION_DONE:
+                missionDone(event);
+                return;
+            default:
+                return;
+        }
+    }
+
+    @Override
+    public void update(int id, Object obj, Event event) {
+        TypeOfEvents typeEvent = event.getTypeOfEvent();
+        switch (typeEvent) {
             case TEAM_CREATION_DONE:
-                // CREIAMO IL THREAD MISSIONE e AVVIAMO
-                Thread t = new Thread(new Mission((Team)event.getMessage()));
+                Thread t = new Thread(new Mission(id, (Team)event.getMessage()));
                 t.start();
                 return;
-            case MISSION_DONE:
-                // MISSIONE COMPLETATA CON SUCCESSO. NOTIFICARE IL TEAM CONTROLLER - SCRITTURA SU BLOCKCHAIN
-                System.out.println("Squadra rientrata " + ((Team)event.getMessage()).teamToString() );
-                // NOTIFICHIAMO IL CONTROLLER
-                notify(event);
-                return;
+            case MESSAGE:
+                Logger.out(true, (String) event.getMessage());
+                break;
             default:
                 return;
         }
     }
 
     private void sendRequestNewTeam(Event event) {
-        System.out.println("Richiesta di soccorso arrivata alla centrale, contatto la centrale di "+ event.getMessage());
-        Event e = new Event(event.getMessage(), REQUEST_TEAM);
-        TeamCreationRequest teamCreationRequest = new TeamCreationRequest(team_counter++, e);
+        Logger.out(true,"Center: Distress call received, contact the team base "+ event.getMessage());
+        Event teamRequest = new Event(event.getMessage(), REQUEST_TEAM);
+        TeamCreationRequest teamCreationRequest = new TeamCreationRequest(counter++, teamRequest);
         Thread t = new Thread(teamCreationRequest);
         t.start();
     }
 
-    @Override
-    public void update(int id, Object obj, Event event) {
-        TypeOfEvents type = event.getTypeOfEvent();
-        switch (type) {
-            case TEAM_CREATION_DONE:
-                // CREIAMO IL THREAD MISSIONE e AVVIAMO
-                Thread t = new Thread(new Mission((Team)event.getMessage()));
-                t.start();
-                return;
-            case MESSAGE:
-                System.out.println("Messaggio arrivato: "+event.getMessage());
-                break;
-            default:
-                return;
-        }
+    private void missionDone(Event event) {
+        // MISSIONE COMPLETATA CON SUCCESSO. NOTIFICARE IL TEAM CONTROLLER - SCRITTURA SU BLOCKCHAIN
+        Logger.out(true, "Center: Re-entry permit confirmed for the team " + ((Team)event.getMessage()).teamToString());
+        // NOTIFICHIAMO IL CONTROLLER
+        Event teamControllerNotify = new Event(event.getMessage(), MISSION_DONE);
+        notify(teamControllerNotify);
+        Event writeOnBlockchain = new Event((Team)event.getMessage(), CREATE_BLOCK);
+        notify(writeOnBlockchain);
     }
-
-
 }

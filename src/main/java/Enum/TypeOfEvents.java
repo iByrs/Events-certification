@@ -9,8 +9,8 @@ public enum TypeOfEvents {
     TEAM_CREATION_DONE,
     ATTACH,
     DETTACH,
-    REQUEST_MISSION,
     MISSION_DONE,
+    CREATE_BLOCK,
     BLOCKCHAIN,
     MESSAGE,
     EMERGENCY

@@ -1,11 +1,15 @@
-import Controller.TeamController;
-
 import Facade.Facade;
-import Repository.Repository;
+import Utility.Logger;
+
+import java.util.concurrent.ExecutionException;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        Logger.clean();
         Facade facade = new Facade();
-        facade.sendEvent();
+        for(int i = 0; i < 100; i++) {
+            facade.sendEvent();
+            Thread.sleep(1000);
+        }
     }
 }

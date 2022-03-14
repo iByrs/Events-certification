@@ -2,7 +2,9 @@ package Entity;
 
 import Enum.*;
 import Observer.Subject;
+import Utility.Logger;
 import Utility.TimestampEvent;
+import com.mysql.cj.log.Log;
 
 public class Emergency extends Subject {
 
@@ -12,6 +14,7 @@ public class Emergency extends Subject {
     private String timestamp;
 
     public Emergency(TypeOfEmergency emergency) {
+        Logger.out(false, "New emergency created. Notify the switchboard. Emergency ->" + emergency);
         this.emergency = emergency;
         this.timestamp = TimestampEvent.getTime();
         sendNotify();

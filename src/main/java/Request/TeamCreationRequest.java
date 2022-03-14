@@ -6,6 +6,7 @@ import Observer.Observer;
 import Observer.Subject;
 import Enum.*;
 import Entity.*;
+import Utility.Logger;
 
 import static Enum.TypeOfEvents.*;
 
@@ -36,7 +37,6 @@ public class TeamCreationRequest extends Subject implements Runnable, Observer {
 
     @Override
     public void run() {
-        System.out.println("Richiesta " +id + " creata con successo!");
         attachMe();
         notify(id, event);
     }
@@ -55,13 +55,15 @@ public class TeamCreationRequest extends Subject implements Runnable, Observer {
             case CREATION_DONE:
                 // CREAZIONE AVVENUTA CON SUCCESSO! NOTIFICHIAMO, E CI STACCHIAMO
                 creationDone(event);
-                break;
+                return;
             case CREATION_FAILED:
                 // CREAZIONE FALLITA, IL THREAD SI METTE IN ATTESA E RE INVIA LA RICHIESTA DI CREAZIONE
-                System.out.println("Mi metto in pausa");
+                Logger.out(true, "TeamThread " + id + ": TeamController doesn't create a new team. Wait.");
                 Thread.sleep(2000);
-                notify(id, event);
-                break;
+                Event newRequest = new Event(event.getMessage(), REQUEST_TEAM);
+                Logger.out(true, newRequest.getMessage().toString());
+                notify(id, newRequest);
+                return;
             default:
                 break;
         }
@@ -69,9 +71,8 @@ public class TeamCreationRequest extends Subject implements Runnable, Observer {
 
     private void creationDone(Event event) {
         Team team = (Team) event.getMessage();
-        System.out.println(team.teamToString());
-        Event e = new Event(team, TEAM_CREATION_DONE);
-        notify(id, e);
+        Event notifyCenter = new Event(team, TEAM_CREATION_DONE);
+        notify(id, notifyCenter);
     }
 
 

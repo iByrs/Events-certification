@@ -1,21 +1,22 @@
 package Entity;
 
-import Observer.Observer;
 import Observer.Subject;
-import Entity.*;
 import Enum.*;
 
 public class Mission extends Subject implements Runnable {
 
-    private int id;
     private Team team;
+    private int id;
 
-    public Mission(Team team) {
+    public Mission(int id, Team team) {
         this.team = team;
         this.id = id;
     }
 
-    private void end() {
+    private void startMission() throws InterruptedException {
+        team.sendEvents();
+    }
+    private void endMission() {
         attach(Center.getInstance());
         Event event = new Event(team, TypeOfEvents.MISSION_DONE);
         notify(event);
@@ -23,10 +24,9 @@ public class Mission extends Subject implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Eseguito run");
         try {
-            team.sendEvents();
-            end();
+            startMission();
+            endMission();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

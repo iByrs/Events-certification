@@ -30,7 +30,7 @@ public class Team {
             driver.sendEvent();
             entity1.sendEvent();
             entity2.sendEvent();
-            //Thread.sleep(1000);
+            Thread.sleep(500);
         }
     }
 
@@ -51,5 +51,6 @@ public class Team {
     public TypeOfJobs getTypeOfTeam() {
         return typeOfTeam;
     }
+    public int getId() { return id; }
     
 }

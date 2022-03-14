@@ -15,7 +15,7 @@ public class Subject {
     public void notify(int id, Event event) {
         subscribers.stream().forEach( x -> {
             try {
-                x.update( id, this, event);
+                x.update(id, this, event);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
