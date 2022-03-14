@@ -57,8 +57,8 @@ public class Center extends Subject implements Observer{
 
     private void sendRequestNewTeam(Event event) {
         Logger.out(true,"Center: Distress call received, contact the team base "+ event.getMessage());
-        Event teamRequest = new Event(event.getMessage(), REQUEST_TEAM);
-        TeamCreationRequest teamCreationRequest = new TeamCreationRequest(counter++, teamRequest);
+        //Event teamRequest = new Event(event.getMessage(), REQUEST_TEAM);
+        TeamCreationRequest teamCreationRequest = new TeamCreationRequest(counter++, (TypeOfJobs) event.getMessage());
         Thread t = new Thread(teamCreationRequest);
         t.start();
     }
