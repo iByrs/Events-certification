@@ -8,46 +8,49 @@ import Enum.*;
 import Entity.*;
 import Utility.Logger;
 
+import java.lang.reflect.Type;
+
 import static Enum.TypeOfEvents.*;
 
 public class TeamCreationRequest extends Subject implements Runnable, Observer {
 
-    private Event event;
+    private TypeOfJobs job;
     // L'ID è L'IDENTIFICATIVO DELLA RICHIESTA
     private int id;
 
-    public TeamCreationRequest(int id, Event event) {
+    public TeamCreationRequest(int id, TypeOfJobs event) {
         attach(Center.getInstance());
         attach(TeamController.getInstance());
-        this.event = event;
+        this.job = event;
         this.id = id;
     }
 
     private void attachMe() {
         notify(new Event(this, ATTACH));
     }
-    private void dettachMe() {
+    private void detachMe() {
         notify(new Event(this, DETTACH));
     }
 
     public void request() {
-        Event e = new Event(event.getMessage() , REQUEST_TEAM);
+        Event e = new Event(job , REQUEST_TEAM);
         notify(id, e);
     }
 
     @Override
     public void run() {
+        Logger.out(true, "TeamThread "+id+" avviato.");
         attachMe();
-        notify(id, event);
+        request();
     }
 
     @Override
-    public void update(Object obj, Event event) {
+    public void update(Event event) {
 
     }
 
     @Override
-    public void update(int id, Object obj, Event event) throws InterruptedException {
+    public void update(int id, Event event) throws InterruptedException {
         if(this.id != id) {
             return;
         }
@@ -55,13 +58,15 @@ public class TeamCreationRequest extends Subject implements Runnable, Observer {
             case CREATION_DONE:
                 // CREAZIONE AVVENUTA CON SUCCESSO! NOTIFICHIAMO, E CI STACCHIAMO
                 creationDone(event);
+                //detachMe();
                 return;
             case CREATION_FAILED:
                 // CREAZIONE FALLITA, IL THREAD SI METTE IN ATTESA E RE INVIA LA RICHIESTA DI CREAZIONE
                 Logger.out(true, "TeamThread " + id + ": TeamController doesn't create a new team. Wait.");
-                Thread.sleep(2000);
-                Event newRequest = new Event(event.getMessage(), REQUEST_TEAM);
-                Logger.out(true, newRequest.getMessage().toString());
+                //detachMe();
+                Event newRequest = new Event(job, REQUEST_TEAM);
+                Thread.sleep(1000);
+                Logger.out(true, "TeamThread " + id + " " + newRequest.getMessage() + "e pronto ad inviare!");
                 notify(id, newRequest);
                 return;
             default:

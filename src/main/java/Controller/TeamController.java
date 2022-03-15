@@ -90,20 +90,20 @@ public class TeamController extends Subject implements Observer {
     }
     // NOTIFICA DI CREAZIONE
     @Override
-    public void update(int id, Object obj, Event event) {
+    public void update(int request, Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.REQUEST_TEAM) {
             return;
         }
         TypeOfJobs typeOfRequest = (TypeOfJobs) event.getMessage();
         switch ( typeOfRequest ) {
             case DOCTOR:
-                createNewTeam(doctors, event, TypeOfJobs.DOCTOR);
+                createNewTeam(doctors, request, TypeOfJobs.DOCTOR);
                 return;
             case FIREMAN:
-                createNewTeam(firemen, event, TypeOfJobs.FIREMAN);
+                createNewTeam(firemen, request, TypeOfJobs.FIREMAN);
                 return;
             case POLICEMAN:
-                createNewTeam(policemen, event, TypeOfJobs.FIREMAN);
+                createNewTeam(policemen, request, TypeOfJobs.FIREMAN);
                 return;
             default:
                 break;
@@ -111,7 +111,7 @@ public class TeamController extends Subject implements Observer {
     }
 
     @Override
-    public void update(Object obj, Event event) {
+    public void update(Event event) {
         if(event.getTypeOfEvent() == TypeOfEvents.ATTACH) {
             Logger.out(true, "TeamController: Attach a new observer -> "+event.getMessage());
             attach((TeamCreationRequest)event.getMessage());
@@ -129,9 +129,9 @@ public class TeamController extends Subject implements Observer {
     private void offDuty(Team team) {
         switch (team.getTypeOfTeam()) {
             case DOCTOR:
-                team.getEntity1().setAvailability(false);
-                team.getEntity2().setAvailability(false);
-                team.getDriver().setAvailability(false);
+                team.getEntity1().setAvailability(true);
+                team.getEntity2().setAvailability(true);
+                team.getDriver().setAvailability(true);
             case POLICEMAN:
                 freeWorker(policemen, team.getEntity1());
                 freeWorker(policemen, team.getEntity1());
@@ -171,21 +171,21 @@ public class TeamController extends Subject implements Observer {
         return false;
     }
 
-    private void createNewTeam(List<Worker> list, Event event, TypeOfJobs typeOfTeam) {
+    private void createNewTeam(List<Worker> list, int teamId, TypeOfJobs typeOfTeam) {
         if( checkTeamAvailability(list) ) {
             if (checkDriverAvailability()) {
                 Logger.out(true, "TeamController:  Check done. Team created.");
-                notify( id, new Event(getTeam(list, typeOfTeam), TypeOfEvents.CREATION_DONE) );
+                notify( teamId, new Event(getTeam(list, typeOfTeam), TypeOfEvents.CREATION_DONE) );
                 return;
             }
         }
-        Logger.out(true, "TeamController: Check done. Team not created. Wait. ");
-        notify( id, new Event( event, TypeOfEvents.CREATION_FAILED));
+        Logger.out(true, "TeamController: Check done. Team not created. Wait " +typeOfTeam);
+        notify( teamId, new Event( typeOfTeam, TypeOfEvents.CREATION_FAILED));
     }
 
     private boolean checkDriverAvailability() {
         for (Worker worker : drivers) {
-            if( worker.getAvailability() == true ) {
+            if(worker.getAvailability()) {
                 return true;
             }
         }
