@@ -34,7 +34,7 @@ public class BlockController extends Subject implements Observer {
 
 
     @Override
-    public void update(Object obj, Event event) {
+    public void update(Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.CREATE_BLOCK) {
             return;
         }
@@ -111,7 +111,7 @@ public class BlockController extends Subject implements Observer {
     }
 
     @Override
-    public void update(int id, Object obj, Event event) throws InterruptedException {
+    public void update(int id, Event event) throws InterruptedException {
         return;
     }
 }

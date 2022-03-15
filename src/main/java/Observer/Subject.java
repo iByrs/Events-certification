@@ -2,20 +2,19 @@ package Observer;
 
 import Entity.Event;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Subject {
 
-    private List<Observer> subscribers = new ArrayList<>();
+    private Vector<Observer> subscribers = new Vector<>();
 
     public void notify(Event event) {
-        subscribers.stream().forEach( x -> x.update(this, event));
+        subscribers.forEach( x -> x.update(event));
     }
     public void notify(int id, Event event) {
-        subscribers.stream().forEach( x -> {
+        subscribers.forEach(x -> {
             try {
-                x.update(id, this, event);
+                x.update(id, event);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -23,11 +22,11 @@ public class Subject {
     }
 
     public void attach(Observer o) {
-        this.subscribers.add(o);
+        subscribers.add(o);
     }
 
     public void detach(Observer o) {
-        this.subscribers.remove(o);
+        subscribers.remove(o);
     }
 
 }

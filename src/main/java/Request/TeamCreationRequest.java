@@ -28,7 +28,7 @@ public class TeamCreationRequest extends Subject implements Runnable, Observer {
     private void attachMe() {
         notify(new Event(this, ATTACH));
     }
-    private void dettachMe() {
+    private void detachMe() {
         notify(new Event(this, DETTACH));
     }
 
@@ -45,12 +45,12 @@ public class TeamCreationRequest extends Subject implements Runnable, Observer {
     }
 
     @Override
-    public void update(Object obj, Event event) {
+    public void update(Event event) {
 
     }
 
     @Override
-    public void update(int id, Object obj, Event event) throws InterruptedException {
+    public void update(int id, Event event) throws InterruptedException {
         if(this.id != id) {
             return;
         }
@@ -58,13 +58,15 @@ public class TeamCreationRequest extends Subject implements Runnable, Observer {
             case CREATION_DONE:
                 // CREAZIONE AVVENUTA CON SUCCESSO! NOTIFICHIAMO, E CI STACCHIAMO
                 creationDone(event);
+                //detachMe();
                 return;
             case CREATION_FAILED:
                 // CREAZIONE FALLITA, IL THREAD SI METTE IN ATTESA E RE INVIA LA RICHIESTA DI CREAZIONE
                 Logger.out(true, "TeamThread " + id + ": TeamController doesn't create a new team. Wait.");
-                Thread.sleep(2000);
+                //detachMe();
                 Event newRequest = new Event(job, REQUEST_TEAM);
-                Logger.out(true, "TeamThread " + id + " " + newRequest.getMessage());
+                Thread.sleep(1000);
+                Logger.out(true, "TeamThread " + id + " " + newRequest.getMessage() + "e pronto ad inviare!");
                 notify(id, newRequest);
                 return;
             default:

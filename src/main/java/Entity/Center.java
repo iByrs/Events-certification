@@ -25,7 +25,7 @@ public class Center extends Subject implements Observer{
     }
 
     @Override
-    public void update(Object subject, Event event) {
+    public void update(Event event) {
         TypeOfEvents typeEvent = event.getTypeOfEvent();
         switch (typeEvent) {
             case REQUEST_EMERGENCY:
@@ -40,7 +40,7 @@ public class Center extends Subject implements Observer{
     }
 
     @Override
-    public void update(int id, Object obj, Event event) {
+    public void update(int id, Event event) {
         TypeOfEvents typeEvent = event.getTypeOfEvent();
         switch (typeEvent) {
             case TEAM_CREATION_DONE:

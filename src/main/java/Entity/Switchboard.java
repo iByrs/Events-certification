@@ -21,12 +21,12 @@ public class Switchboard extends Subject implements Observer {
 
 
     @Override
-    public void update(Object subject, Event event) {
+    public void update(Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.EMERGENCY ) {
             return;
         }
         // SE SUPERA L'IF IL SUBJECT è UN EMERGENCY
-        TypeOfEmergency emergency = ((Emergency) subject).getEmergency();
+        TypeOfEmergency emergency = (TypeOfEmergency) event.getMessage();
         switch (emergency) {
             case HOSPITAL:
                 Event newEvent = new Event(TypeOfJobs.DOCTOR, TypeOfEvents.REQUEST_EMERGENCY);
@@ -38,7 +38,7 @@ public class Switchboard extends Subject implements Observer {
     }
 
     @Override
-    public void update(int id, Object obj, Event event) {
+    public void update(int id, Event event) {
         //TODO
         return;
     }

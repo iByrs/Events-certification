@@ -90,7 +90,7 @@ public class TeamController extends Subject implements Observer {
     }
     // NOTIFICA DI CREAZIONE
     @Override
-    public void update(int request, Object obj, Event event) {
+    public void update(int request, Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.REQUEST_TEAM) {
             return;
         }
@@ -111,7 +111,7 @@ public class TeamController extends Subject implements Observer {
     }
 
     @Override
-    public void update(Object obj, Event event) {
+    public void update(Event event) {
         if(event.getTypeOfEvent() == TypeOfEvents.ATTACH) {
             Logger.out(true, "TeamController: Attach a new observer -> "+event.getMessage());
             attach((TeamCreationRequest)event.getMessage());
@@ -185,7 +185,7 @@ public class TeamController extends Subject implements Observer {
 
     private boolean checkDriverAvailability() {
         for (Worker worker : drivers) {
-            if( worker.getAvailability() == true ) {
+            if(worker.getAvailability()) {
                 return true;
             }
         }
