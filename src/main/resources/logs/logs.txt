@@ -1,259 +1,118 @@
-2022-03-14 22:18:13.785 -> Trying to connect to database onjdbc:mysql://localhost:3306/Repository.
-2022-03-14 22:18:14.297 -> Connection to database successfully.
-2022-03-14 22:18:14.302 -> Setted query timeout 30 second.
-2022-03-14 22:18:14.355 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:14.357 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:14.361 -> TeamThread 0 avviato.
-2022-03-14 22:18:14.361 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@1fa36c93
-2022-03-14 22:18:14.362 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:14.387 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:14.387 -> Mission: 0 id:1_DOCTOR_Willy_Wally Visito l incidentato.
-2022-03-14 22:18:14.388 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
-2022-03-14 22:18:14.889 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:14.889 -> Mission: 0 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:14.89 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:15.361 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:15.361 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:15.362 -> TeamThread 1 avviato.
-2022-03-14 22:18:15.362 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@53cbe10b
-2022-03-14 22:18:15.363 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:15.363 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:15.364 -> Mission: 1 id:4_DOCTOR_Susy_Marano Visito l incidentato.
-2022-03-14 22:18:15.364 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Visito l incidentato.
-2022-03-14 22:18:15.393 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:15.393 -> Mission: 0 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
-2022-03-14 22:18:15.394 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
-2022-03-14 22:18:15.867 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:15.867 -> Mission: 1 id:4_DOCTOR_Susy_Marano L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:15.868 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:15.895 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:15.895 -> Mission: 0 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
-2022-03-14 22:18:15.896 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:16.363 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:16.363 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:16.363 -> TeamThread 2 avviato.
-2022-03-14 22:18:16.364 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@4b120025
-2022-03-14 22:18:16.364 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:16.365 -> Mission: 2 id:7_DRIVER_Tom_Monello Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:16.365 -> Mission: 2 id:9_DOCTOR_Cora_Bianca Visito l incidentato.
-2022-03-14 22:18:16.365 -> Mission: 2 id:10_DOCTOR_Maya_Stella Visito l incidentato.
-2022-03-14 22:18:16.371 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:16.371 -> Mission: 1 id:4_DOCTOR_Susy_Marano Procedo con l operazione ...
-2022-03-14 22:18:16.371 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Procediamo con l operazione di soccorso.
-2022-03-14 22:18:16.405 -> Center: Re-entry permit confirmed for the team Team 0 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
-2022-03-14 22:18:16.406 -> TeamController: Team no longer busy.
-2022-03-14 22:18:16.866 -> Mission: 2 id:7_DRIVER_Tom_Monello Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:16.867 -> Mission: 2 id:9_DOCTOR_Cora_Bianca L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:16.867 -> Mission: 2 id:10_DOCTOR_Maya_Stella Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:16.875 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:16.875 -> Mission: 1 id:4_DOCTOR_Susy_Marano L incidentato si è ripreso
-2022-03-14 22:18:16.875 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:17.368 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:17.368 -> Mission: 2 id:7_DRIVER_Tom_Monello Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:17.368 -> Mission: 2 id:9_DOCTOR_Cora_Bianca Procedo con l operazione ...
-2022-03-14 22:18:17.368 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:17.369 -> Mission: 2 id:10_DOCTOR_Maya_Stella Procediamo con l operazione di soccorso.
-2022-03-14 22:18:17.369 -> TeamThread 3 avviato.
-2022-03-14 22:18:17.369 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@1861b989
-2022-03-14 22:18:17.37 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:17.37 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:17.37 -> Mission: 3 id:1_DOCTOR_Willy_Wally Visito l incidentato.
-2022-03-14 22:18:17.371 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
-2022-03-14 22:18:17.38 -> Center: Re-entry permit confirmed for the team Team 1 id:4_DOCTOR_Susy_Marano id:5_DOCTOR_Carmela_Rapisarda id:6_DRIVER_Alberto_Parisi
-2022-03-14 22:18:17.38 -> TeamController: Team no longer busy.
-2022-03-14 22:18:17.87 -> Mission: 2 id:7_DRIVER_Tom_Monello Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:17.871 -> Mission: 2 id:9_DOCTOR_Cora_Bianca L incidentato si è ripreso
-2022-03-14 22:18:17.871 -> Mission: 2 id:10_DOCTOR_Maya_Stella Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:17.871 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:17.872 -> Mission: 3 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:17.872 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:18.37 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:18.37 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:18.371 -> TeamThread 4 avviato.
-2022-03-14 22:18:18.371 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@7c771ec3
-2022-03-14 22:18:18.371 -> Center: Re-entry permit confirmed for the team Team 2 id:9_DOCTOR_Cora_Bianca id:10_DOCTOR_Maya_Stella id:7_DRIVER_Tom_Monello
-2022-03-14 22:18:18.372 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:18.372 -> TeamController: Team no longer busy.
-2022-03-14 22:18:18.373 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:18.373 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:18.373 -> Mission: 4 id:4_DOCTOR_Susy_Marano Visito l incidentato.
-2022-03-14 22:18:18.373 -> Mission: 3 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
-2022-03-14 22:18:18.373 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
-2022-03-14 22:18:18.373 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Visito l incidentato.
-2022-03-14 22:18:18.877 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:18.877 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:18.878 -> Mission: 4 id:4_DOCTOR_Susy_Marano L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:18.878 -> Mission: 3 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
-2022-03-14 22:18:18.878 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:18.878 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:19.376 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:19.377 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:19.377 -> TeamThread 5 avviato.
-2022-03-14 22:18:19.378 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@e7f678e
-2022-03-14 22:18:19.378 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:19.379 -> Mission: 5 id:7_DRIVER_Tom_Monello Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:19.379 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:19.379 -> Center: Re-entry permit confirmed for the team Team 3 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
-2022-03-14 22:18:19.379 -> Mission: 5 id:9_DOCTOR_Cora_Bianca Visito l incidentato.
-2022-03-14 22:18:19.379 -> TeamController: Team no longer busy.
-2022-03-14 22:18:19.379 -> Mission: 4 id:4_DOCTOR_Susy_Marano Procedo con l operazione ...
-2022-03-14 22:18:19.38 -> Mission: 5 id:10_DOCTOR_Maya_Stella Visito l incidentato.
-2022-03-14 22:18:19.38 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Procediamo con l operazione di soccorso.
-2022-03-14 22:18:19.88 -> Mission: 5 id:7_DRIVER_Tom_Monello Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:19.88 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:19.881 -> Mission: 5 id:9_DOCTOR_Cora_Bianca L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:19.881 -> Mission: 4 id:4_DOCTOR_Susy_Marano L incidentato si è ripreso
-2022-03-14 22:18:19.881 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:19.881 -> Mission: 5 id:10_DOCTOR_Maya_Stella Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:20.382 -> Mission: 5 id:7_DRIVER_Tom_Monello Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:20.382 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:20.382 -> Center: Re-entry permit confirmed for the team Team 4 id:4_DOCTOR_Susy_Marano id:5_DOCTOR_Carmela_Rapisarda id:6_DRIVER_Alberto_Parisi
-2022-03-14 22:18:20.382 -> Mission: 5 id:9_DOCTOR_Cora_Bianca Procedo con l operazione ...
-2022-03-14 22:18:20.383 -> Mission: 5 id:10_DOCTOR_Maya_Stella Procediamo con l operazione di soccorso.
-2022-03-14 22:18:20.383 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:20.383 -> TeamController: Team no longer busy.
-2022-03-14 22:18:20.383 -> TeamThread 6 avviato.
-2022-03-14 22:18:20.384 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@1de3d8b2
-2022-03-14 22:18:20.384 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:20.384 -> Mission: 6 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:20.385 -> Mission: 6 id:1_DOCTOR_Willy_Wally Visito l incidentato.
-2022-03-14 22:18:20.385 -> Mission: 6 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
-2022-03-14 22:18:20.883 -> Mission: 5 id:7_DRIVER_Tom_Monello Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:20.884 -> Mission: 5 id:9_DOCTOR_Cora_Bianca L incidentato si è ripreso
-2022-03-14 22:18:20.884 -> Mission: 5 id:10_DOCTOR_Maya_Stella Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:20.887 -> Mission: 6 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:20.887 -> Mission: 6 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:20.887 -> Mission: 6 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:21.389 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:21.389 -> Mission: 6 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:21.389 -> Center: Re-entry permit confirmed for the team Team 5 id:9_DOCTOR_Cora_Bianca id:10_DOCTOR_Maya_Stella id:7_DRIVER_Tom_Monello
-2022-03-14 22:18:21.389 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:21.389 -> TeamController: Team no longer busy.
-2022-03-14 22:18:21.389 -> Mission: 6 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
-2022-03-14 22:18:21.389 -> Mission: 6 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
-2022-03-14 22:18:21.39 -> TeamThread 7 avviato.
-2022-03-14 22:18:21.39 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@e2956e9
-2022-03-14 22:18:21.39 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:21.391 -> Mission: 7 id:6_DRIVER_Alberto_Parisi Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:21.391 -> Mission: 7 id:4_DOCTOR_Susy_Marano Visito l incidentato.
-2022-03-14 22:18:21.392 -> Mission: 7 id:5_DOCTOR_Carmela_Rapisarda Visito l incidentato.
-2022-03-14 22:18:21.892 -> Mission: 6 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:21.892 -> Mission: 6 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
-2022-03-14 22:18:21.893 -> Mission: 6 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:21.897 -> Mission: 7 id:6_DRIVER_Alberto_Parisi Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:21.897 -> Mission: 7 id:4_DOCTOR_Susy_Marano L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:21.897 -> Mission: 7 id:5_DOCTOR_Carmela_Rapisarda Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:22.392 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:22.392 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:22.393 -> TeamThread 8 avviato.
-2022-03-14 22:18:22.393 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@4560efb6
-2022-03-14 22:18:22.393 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:22.394 -> Mission: 8 id:7_DRIVER_Tom_Monello Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:22.394 -> Mission: 8 id:9_DOCTOR_Cora_Bianca Visito l incidentato.
-2022-03-14 22:18:22.395 -> Mission: 8 id:10_DOCTOR_Maya_Stella Visito l incidentato.
-2022-03-14 22:18:22.395 -> Center: Re-entry permit confirmed for the team Team 6 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
-2022-03-14 22:18:22.395 -> TeamController: Team no longer busy.
-2022-03-14 22:18:22.398 -> Mission: 7 id:6_DRIVER_Alberto_Parisi Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:22.398 -> Mission: 7 id:4_DOCTOR_Susy_Marano Procedo con l operazione ...
-2022-03-14 22:18:22.398 -> Mission: 7 id:5_DOCTOR_Carmela_Rapisarda Procediamo con l operazione di soccorso.
-2022-03-14 22:18:22.9 -> Mission: 8 id:7_DRIVER_Tom_Monello Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:22.9 -> Mission: 7 id:6_DRIVER_Alberto_Parisi Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:22.9 -> Mission: 8 id:9_DOCTOR_Cora_Bianca L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:22.901 -> Mission: 7 id:4_DOCTOR_Susy_Marano L incidentato si è ripreso
-2022-03-14 22:18:22.901 -> Mission: 8 id:10_DOCTOR_Maya_Stella Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:22.901 -> Mission: 7 id:5_DOCTOR_Carmela_Rapisarda Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:23.395 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:23.396 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:23.396 -> TeamThread 9 avviato.
-2022-03-14 22:18:23.397 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@79d6f7a6
-2022-03-14 22:18:23.397 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:23.398 -> Mission: 9 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:23.398 -> Mission: 9 id:1_DOCTOR_Willy_Wally Visito l incidentato.
-2022-03-14 22:18:23.398 -> Mission: 9 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
-2022-03-14 22:18:23.401 -> Mission: 8 id:7_DRIVER_Tom_Monello Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:23.402 -> Mission: 8 id:9_DOCTOR_Cora_Bianca Procedo con l operazione ...
-2022-03-14 22:18:23.402 -> Center: Re-entry permit confirmed for the team Team 7 id:4_DOCTOR_Susy_Marano id:5_DOCTOR_Carmela_Rapisarda id:6_DRIVER_Alberto_Parisi
-2022-03-14 22:18:23.402 -> Mission: 8 id:10_DOCTOR_Maya_Stella Procediamo con l operazione di soccorso.
-2022-03-14 22:18:23.402 -> TeamController: Team no longer busy.
-2022-03-14 22:18:23.902 -> Mission: 9 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:23.903 -> Mission: 9 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:23.903 -> Mission: 8 id:7_DRIVER_Tom_Monello Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:23.903 -> Mission: 9 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:23.903 -> Mission: 8 id:9_DOCTOR_Cora_Bianca L incidentato si è ripreso
-2022-03-14 22:18:23.903 -> Mission: 8 id:10_DOCTOR_Maya_Stella Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:24.399 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:24.399 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:24.4 -> TeamThread 10 avviato.
-2022-03-14 22:18:24.4 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@5368d7da
-2022-03-14 22:18:24.4 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:24.401 -> Mission: 10 id:6_DRIVER_Alberto_Parisi Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:24.401 -> Mission: 10 id:4_DOCTOR_Susy_Marano Visito l incidentato.
-2022-03-14 22:18:24.401 -> Mission: 10 id:5_DOCTOR_Carmela_Rapisarda Visito l incidentato.
-2022-03-14 22:18:24.404 -> Center: Re-entry permit confirmed for the team Team 8 id:9_DOCTOR_Cora_Bianca id:10_DOCTOR_Maya_Stella id:7_DRIVER_Tom_Monello
-2022-03-14 22:18:24.404 -> Mission: 9 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:24.404 -> TeamController: Team no longer busy.
-2022-03-14 22:18:24.404 -> Mission: 9 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
-2022-03-14 22:18:24.405 -> Mission: 9 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
-2022-03-14 22:18:24.906 -> Mission: 9 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:24.906 -> Mission: 10 id:6_DRIVER_Alberto_Parisi Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:24.906 -> Mission: 9 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
-2022-03-14 22:18:24.906 -> Mission: 10 id:4_DOCTOR_Susy_Marano L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:24.906 -> Mission: 10 id:5_DOCTOR_Carmela_Rapisarda Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:24.907 -> Mission: 9 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:25.404 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:25.404 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:25.404 -> TeamThread 11 avviato.
-2022-03-14 22:18:25.405 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@54a384db
-2022-03-14 22:18:25.405 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:25.405 -> Mission: 11 id:7_DRIVER_Tom_Monello Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:25.405 -> Mission: 11 id:9_DOCTOR_Cora_Bianca Visito l incidentato.
-2022-03-14 22:18:25.406 -> Mission: 11 id:10_DOCTOR_Maya_Stella Visito l incidentato.
-2022-03-14 22:18:25.408 -> Mission: 10 id:6_DRIVER_Alberto_Parisi Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:25.408 -> Center: Re-entry permit confirmed for the team Team 9 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
-2022-03-14 22:18:25.408 -> Mission: 10 id:4_DOCTOR_Susy_Marano Procedo con l operazione ...
-2022-03-14 22:18:25.408 -> TeamController: Team no longer busy.
-2022-03-14 22:18:25.408 -> Mission: 10 id:5_DOCTOR_Carmela_Rapisarda Procediamo con l operazione di soccorso.
-2022-03-14 22:18:25.909 -> Mission: 10 id:6_DRIVER_Alberto_Parisi Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:25.909 -> Mission: 11 id:7_DRIVER_Tom_Monello Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:25.909 -> Mission: 10 id:4_DOCTOR_Susy_Marano L incidentato si è ripreso
-2022-03-14 22:18:25.909 -> Mission: 11 id:9_DOCTOR_Cora_Bianca L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:25.909 -> Mission: 11 id:10_DOCTOR_Maya_Stella Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:25.909 -> Mission: 10 id:5_DOCTOR_Carmela_Rapisarda Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:26.406 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:26.406 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:26.407 -> TeamThread 12 avviato.
-2022-03-14 22:18:26.407 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@12139101
-2022-03-14 22:18:26.407 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:26.408 -> Mission: 12 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:26.408 -> Mission: 12 id:1_DOCTOR_Willy_Wally Visito l incidentato.
-2022-03-14 22:18:26.408 -> Mission: 12 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
-2022-03-14 22:18:26.414 -> Mission: 11 id:7_DRIVER_Tom_Monello Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:26.414 -> Center: Re-entry permit confirmed for the team Team 10 id:4_DOCTOR_Susy_Marano id:5_DOCTOR_Carmela_Rapisarda id:6_DRIVER_Alberto_Parisi
-2022-03-14 22:18:26.414 -> Mission: 11 id:9_DOCTOR_Cora_Bianca Procedo con l operazione ...
-2022-03-14 22:18:26.414 -> TeamController: Team no longer busy.
-2022-03-14 22:18:26.415 -> Mission: 11 id:10_DOCTOR_Maya_Stella Procediamo con l operazione di soccorso.
-2022-03-14 22:18:26.911 -> Mission: 12 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:26.912 -> Mission: 12 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:26.912 -> Mission: 12 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:26.917 -> Mission: 11 id:7_DRIVER_Tom_Monello Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:26.917 -> Mission: 11 id:9_DOCTOR_Cora_Bianca L incidentato si è ripreso
-2022-03-14 22:18:26.917 -> Mission: 11 id:10_DOCTOR_Maya_Stella Carico l incidentato sul lettino. Carichiamo sull auto.
-2022-03-14 22:18:27.408 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
-2022-03-14 22:18:27.408 -> Center: Distress call received, contact the team base DOCTOR
-2022-03-14 22:18:27.408 -> TeamThread 13 avviato.
-2022-03-14 22:18:27.409 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@17766c50
-2022-03-14 22:18:27.409 -> TeamController:  Check done. Team created.
-2022-03-14 22:18:27.409 -> Mission: 13 id:6_DRIVER_Alberto_Parisi Mi dirigo verso il luogo del misfatto.
-2022-03-14 22:18:27.41 -> Mission: 13 id:4_DOCTOR_Susy_Marano Visito l incidentato.
-2022-03-14 22:18:27.41 -> Mission: 13 id:5_DOCTOR_Carmela_Rapisarda Visito l incidentato.
-2022-03-14 22:18:27.414 -> Mission: 12 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
-2022-03-14 22:18:27.415 -> Mission: 12 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
-2022-03-14 22:18:27.415 -> Mission: 12 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
-2022-03-14 22:18:27.418 -> Center: Re-entry permit confirmed for the team Team 11 id:9_DOCTOR_Cora_Bianca id:10_DOCTOR_Maya_Stella id:7_DRIVER_Tom_Monello
-2022-03-14 22:18:27.418 -> TeamController: Team no longer busy.
-2022-03-14 22:18:27.915 -> Mission: 13 id:6_DRIVER_Alberto_Parisi Arrivati nel luogo del misfatto. Spengo.
-2022-03-14 22:18:27.915 -> Mission: 12 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
-2022-03-14 22:18:27.915 -> Mission: 13 id:4_DOCTOR_Susy_Marano L incidentato è svenuto, battito basso. 
-2022-03-14 22:18:27.915 -> Mission: 12 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
-2022-03-14 22:18:27.915 -> Mission: 13 id:5_DOCTOR_Carmela_Rapisarda Spoglio l incidentato per svolgere l operazione di rianimazione.
-2022-03-14 22:18:27.916 -> Mission: 12 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-15 20:30:27.201 -> Trying to connect to database onjdbc:mysql://localhost:3306/Repository.
+2022-03-15 20:30:27.654 -> Connection to database successfully.
+2022-03-15 20:30:27.659 -> Setted query timeout 30 second.
+2022-03-15 20:30:27.709 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-15 20:30:27.712 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-15 20:30:27.716 -> TeamThread 0 avviato.
+2022-03-15 20:30:27.717 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@280edc8d
+2022-03-15 20:30:27.718 -> TeamController:  Check done. Team created.
+2022-03-15 20:30:27.745 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
+2022-03-15 20:30:27.746 -> Mission: 0 id:1_DOCTOR_Willy_Wally Visito l incidentato.
+2022-03-15 20:30:27.746 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
+2022-03-15 20:30:28.247 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
+2022-03-15 20:30:28.248 -> Mission: 0 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
+2022-03-15 20:30:28.249 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
+2022-03-15 20:30:28.718 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-15 20:30:28.719 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-15 20:30:28.72 -> TeamThread 1 avviato.
+2022-03-15 20:30:28.721 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@37e45018
+2022-03-15 20:30:28.722 -> TeamController:  Check done. Team created.
+2022-03-15 20:30:28.723 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Mi dirigo verso il luogo del misfatto.
+2022-03-15 20:30:28.724 -> Mission: 1 id:4_DOCTOR_Susy_Marano Visito l incidentato.
+2022-03-15 20:30:28.725 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Visito l incidentato.
+2022-03-15 20:30:28.75 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
+2022-03-15 20:30:28.751 -> Mission: 0 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
+2022-03-15 20:30:28.752 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
+2022-03-15 20:30:29.23 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Arrivati nel luogo del misfatto. Spengo.
+2022-03-15 20:30:29.231 -> Mission: 1 id:4_DOCTOR_Susy_Marano L incidentato è svenuto, battito basso. 
+2022-03-15 20:30:29.232 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Spoglio l incidentato per svolgere l operazione di rianimazione.
+2022-03-15 20:30:29.257 -> Mission: 0 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
+2022-03-15 20:30:29.258 -> Mission: 0 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
+2022-03-15 20:30:29.259 -> Mission: 0 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-15 20:30:29.721 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-15 20:30:29.722 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-15 20:30:29.723 -> TeamThread 2 avviato.
+2022-03-15 20:30:29.724 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@34dbff42
+2022-03-15 20:30:29.725 -> TeamController:  Check done. Team created.
+2022-03-15 20:30:29.726 -> Mission: 2 id:7_DRIVER_Tom_Monello Mi dirigo verso il luogo del misfatto.
+2022-03-15 20:30:29.727 -> Mission: 2 id:9_DOCTOR_Cora_Bianca Visito l incidentato.
+2022-03-15 20:30:29.728 -> Mission: 2 id:10_DOCTOR_Maya_Stella Visito l incidentato.
+2022-03-15 20:30:29.733 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Mi dirigo alla centrale, per depositare i messaggi.
+2022-03-15 20:30:29.734 -> Mission: 1 id:4_DOCTOR_Susy_Marano Procedo con l operazione ...
+2022-03-15 20:30:29.734 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Procediamo con l operazione di soccorso.
+2022-03-15 20:30:29.776 -> Center: Re-entry permit confirmed for the team Team 0 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
+2022-03-15 20:30:29.777 -> TeamController: Team no longer busy.
+2022-03-15 20:30:30.232 -> Mission: 2 id:7_DRIVER_Tom_Monello Arrivati nel luogo del misfatto. Spengo.
+2022-03-15 20:30:30.232 -> Mission: 2 id:9_DOCTOR_Cora_Bianca L incidentato è svenuto, battito basso. 
+2022-03-15 20:30:30.233 -> Mission: 2 id:10_DOCTOR_Maya_Stella Spoglio l incidentato per svolgere l operazione di rianimazione.
+2022-03-15 20:30:30.237 -> Mission: 1 id:6_DRIVER_Alberto_Parisi Arrivati alla centrale. Spengo i motori.
+2022-03-15 20:30:30.237 -> Mission: 1 id:4_DOCTOR_Susy_Marano L incidentato si è ripreso
+2022-03-15 20:30:30.238 -> Mission: 1 id:5_DOCTOR_Carmela_Rapisarda Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-15 20:30:30.724 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-15 20:30:30.724 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-15 20:30:30.726 -> TeamThread 3 avviato.
+2022-03-15 20:30:30.727 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@78568375
+2022-03-15 20:30:30.728 -> TeamController:  Check done. Team created.
+2022-03-15 20:30:30.729 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Mi dirigo verso il luogo del misfatto.
+2022-03-15 20:30:30.73 -> Mission: 3 id:1_DOCTOR_Willy_Wally Visito l incidentato.
+2022-03-15 20:30:30.731 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Visito l incidentato.
+2022-03-15 20:30:30.736 -> Mission: 2 id:7_DRIVER_Tom_Monello Mi dirigo alla centrale, per depositare i messaggi.
+2022-03-15 20:30:30.737 -> Mission: 2 id:9_DOCTOR_Cora_Bianca Procedo con l operazione ...
+2022-03-15 20:30:30.737 -> Mission: 2 id:10_DOCTOR_Maya_Stella Procediamo con l operazione di soccorso.
+2022-03-15 20:30:30.74 -> Center: Re-entry permit confirmed for the team Team 1 id:4_DOCTOR_Susy_Marano id:5_DOCTOR_Carmela_Rapisarda id:6_DRIVER_Alberto_Parisi
+2022-03-15 20:30:30.741 -> TeamController: Team no longer busy.
+2022-03-15 20:30:31.237 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Arrivati nel luogo del misfatto. Spengo.
+2022-03-15 20:30:31.239 -> Mission: 3 id:1_DOCTOR_Willy_Wally L incidentato è svenuto, battito basso. 
+2022-03-15 20:30:31.24 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Spoglio l incidentato per svolgere l operazione di rianimazione.
+2022-03-15 20:30:31.241 -> Mission: 2 id:7_DRIVER_Tom_Monello Arrivati alla centrale. Spengo i motori.
+2022-03-15 20:30:31.241 -> Mission: 2 id:9_DOCTOR_Cora_Bianca L incidentato si è ripreso
+2022-03-15 20:30:31.242 -> Mission: 2 id:10_DOCTOR_Maya_Stella Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-15 20:30:31.726 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-15 20:30:31.726 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-15 20:30:31.727 -> TeamThread 4 avviato.
+2022-03-15 20:30:31.728 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@be30644
+2022-03-15 20:30:31.729 -> TeamController:  Check done. Team created.
+2022-03-15 20:30:31.73 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Mi dirigo verso il luogo del misfatto.
+2022-03-15 20:30:31.73 -> Mission: 4 id:4_DOCTOR_Susy_Marano Visito l incidentato.
+2022-03-15 20:30:31.731 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Visito l incidentato.
+2022-03-15 20:30:31.742 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Mi dirigo alla centrale, per depositare i messaggi.
+2022-03-15 20:30:31.743 -> Mission: 3 id:1_DOCTOR_Willy_Wally Procedo con l operazione ...
+2022-03-15 20:30:31.744 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Procediamo con l operazione di soccorso.
+2022-03-15 20:30:31.745 -> Center: Re-entry permit confirmed for the team Team 2 id:9_DOCTOR_Cora_Bianca id:10_DOCTOR_Maya_Stella id:7_DRIVER_Tom_Monello
+2022-03-15 20:30:31.746 -> TeamController: Team no longer busy.
+2022-03-15 20:30:32.233 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Arrivati nel luogo del misfatto. Spengo.
+2022-03-15 20:30:32.234 -> Mission: 4 id:4_DOCTOR_Susy_Marano L incidentato è svenuto, battito basso. 
+2022-03-15 20:30:32.235 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Spoglio l incidentato per svolgere l operazione di rianimazione.
+2022-03-15 20:30:32.249 -> Mission: 3 id:3_DRIVER_Vincent_Pastor Arrivati alla centrale. Spengo i motori.
+2022-03-15 20:30:32.25 -> Mission: 3 id:1_DOCTOR_Willy_Wally L incidentato si è ripreso
+2022-03-15 20:30:32.25 -> Mission: 3 id:2_DOCTOR_Jennifer_Marano Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-15 20:30:32.729 -> New emergency created. Notify the switchboard. Emergency ->HOSPITAL
+2022-03-15 20:30:32.73 -> Center: Distress call received, contact the team base DOCTOR
+2022-03-15 20:30:32.731 -> TeamThread 5 avviato.
+2022-03-15 20:30:32.732 -> TeamController: Attach a new observer -> Request.TeamCreationRequest@e7f678e
+2022-03-15 20:30:32.733 -> TeamController:  Check done. Team created.
+2022-03-15 20:30:32.734 -> Mission: 5 id:7_DRIVER_Tom_Monello Mi dirigo verso il luogo del misfatto.
+2022-03-15 20:30:32.735 -> Mission: 5 id:9_DOCTOR_Cora_Bianca Visito l incidentato.
+2022-03-15 20:30:32.736 -> Mission: 5 id:10_DOCTOR_Maya_Stella Visito l incidentato.
+2022-03-15 20:30:32.736 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Mi dirigo alla centrale, per depositare i messaggi.
+2022-03-15 20:30:32.737 -> Mission: 4 id:4_DOCTOR_Susy_Marano Procedo con l operazione ...
+2022-03-15 20:30:32.737 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Procediamo con l operazione di soccorso.
+2022-03-15 20:30:32.752 -> Center: Re-entry permit confirmed for the team Team 3 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
+2022-03-15 20:30:32.753 -> TeamController: Team no longer busy.
+2022-03-15 20:30:33.24 -> Mission: 4 id:6_DRIVER_Alberto_Parisi Arrivati alla centrale. Spengo i motori.
+2022-03-15 20:30:33.24 -> Mission: 5 id:7_DRIVER_Tom_Monello Arrivati nel luogo del misfatto. Spengo.
+2022-03-15 20:30:33.241 -> Mission: 5 id:9_DOCTOR_Cora_Bianca L incidentato è svenuto, battito basso. 
+2022-03-15 20:30:33.241 -> Mission: 4 id:4_DOCTOR_Susy_Marano L incidentato si è ripreso
+2022-03-15 20:30:33.241 -> Mission: 5 id:10_DOCTOR_Maya_Stella Spoglio l incidentato per svolgere l operazione di rianimazione.
+2022-03-15 20:30:33.242 -> Mission: 4 id:5_DOCTOR_Carmela_Rapisarda Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-15 20:30:33.742 -> Mission: 5 id:7_DRIVER_Tom_Monello Mi dirigo alla centrale, per depositare i messaggi.
+2022-03-15 20:30:33.743 -> Mission: 5 id:9_DOCTOR_Cora_Bianca Procedo con l operazione ...
+2022-03-15 20:30:33.744 -> Center: Re-entry permit confirmed for the team Team 4 id:4_DOCTOR_Susy_Marano id:5_DOCTOR_Carmela_Rapisarda id:6_DRIVER_Alberto_Parisi
+2022-03-15 20:30:33.744 -> Mission: 5 id:10_DOCTOR_Maya_Stella Procediamo con l operazione di soccorso.
+2022-03-15 20:30:33.744 -> TeamController: Team no longer busy.
+2022-03-15 20:30:34.245 -> Mission: 5 id:7_DRIVER_Tom_Monello Arrivati alla centrale. Spengo i motori.
+2022-03-15 20:30:34.247 -> Mission: 5 id:9_DOCTOR_Cora_Bianca L incidentato si è ripreso
+2022-03-15 20:30:34.247 -> Mission: 5 id:10_DOCTOR_Maya_Stella Carico l incidentato sul lettino. Carichiamo sull auto.
+2022-03-15 20:30:34.75 -> Center: Re-entry permit confirmed for the team Team 5 id:9_DOCTOR_Cora_Bianca id:10_DOCTOR_Maya_Stella id:7_DRIVER_Tom_Monello
+2022-03-15 20:30:34.751 -> TeamController: Team no longer busy.
+2022-03-15 20:30:34.758 -> Created a new block 00004efe876bf5f21bdb8743a3c7481621c1d5f8925af95f89a376cc9d3fbe90 refer to the mission/Team 0 id:1_DOCTOR_Willy_Wally id:2_DOCTOR_Jennifer_Marano id:3_DRIVER_Vincent_Pastor
