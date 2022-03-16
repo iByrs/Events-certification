@@ -43,6 +43,19 @@ public class Block {
         }
     }
 
+    public Event getEvent() {
+        return event;
+    }
 
+    public String getTimestamp_creazione_blocco() {
+        return timestamp_creazione_blocco;
+    }
 
+    public String getTimestamp_creazione_evento() {
+        return timestamp_creazione_evento;
+    }
+
+    public int getNonce() {
+        return nonce;
+    }
 }

@@ -1,5 +1,6 @@
 package Entity;
 
+import Blockchain.Block;
 import Observer.*;
 import Enum.*;
 import Request.TeamCreationRequest;
@@ -33,6 +34,10 @@ public class Center extends Subject implements Observer{
                 break;
             case MISSION_DONE:
                 missionDone(event);
+                return;
+            case BLOCKCHAIN:
+                Block block = (Block) event.getMessage();
+                Logger.out(true, "Created a new block " + block.hash +" refer to the mission/"+ ((Team)(block.getEvent().getMessage())).teamToString());
                 return;
             default:
                 return;

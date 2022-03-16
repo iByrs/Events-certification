@@ -2,13 +2,13 @@ package Controller;
 
 import Blockchain.Block;
 import Blockchain.Blockchain;
+import Entity.Center;
 import Entity.Event;
 import Observer.*;
 import Enum.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 public class BlockController extends Subject implements Observer {
 
@@ -23,6 +23,7 @@ public class BlockController extends Subject implements Observer {
         this.n = 0;
         this.m = 5;
         blocks = new CompletableFuture[5];
+        attach(Center.getInstance());
     }
 
     public static BlockController getInstance() {
@@ -42,7 +43,6 @@ public class BlockController extends Subject implements Observer {
             addBlock(event);
         }else {
             addQueue(event);
-            System.out.println("Start mining.");
             startMining();
             popEventInBlocks();
         }
@@ -59,6 +59,7 @@ public class BlockController extends Subject implements Observer {
     public Block getBlock() {
         try {
             Block newBlock = (Block) CompletableFuture.anyOf(blocks).get();
+            removeCompletableFuture();
             return newBlock;
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -68,8 +69,8 @@ public class BlockController extends Subject implements Observer {
 
     // RIMOVIAMO IL COMPLETABLEFUTURE COMPLETATO
     public void removeCompletableFuture() {
-        for(int i = 0; i < n-1; i++) {
-            System.out.println(blocks[i].isDone());
+        for(int i = 0; i < n; i++) {
+            System.out.println(blocks[i].isCancelled());
             if(blocks[i].isDone()) {
                 blocks[i] = blocks[n-1];
             }
@@ -83,7 +84,7 @@ public class BlockController extends Subject implements Observer {
         if(n == m) {
             Block block = getBlock();
             System.out.println(block.hash);
-            removeCompletableFuture();
+            //removeCompletableFuture();
             Event newEvent = new Event(block, TypeOfEvents.BLOCKCHAIN);
             notify(newEvent);
         }
@@ -103,6 +104,7 @@ public class BlockController extends Subject implements Observer {
     public void addBlock(Event event) {
         if(n < m) {
             blocks[n++] = CompletableFuture.supplyAsync(() -> createNewBlock(event));
+            //System.out.println(blocks[n-1].isDone());
         }
     }
 
