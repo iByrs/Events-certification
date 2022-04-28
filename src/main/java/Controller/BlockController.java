@@ -6,23 +6,24 @@ import Entity.Center;
 import Entity.Event;
 import Observer.*;
 import Enum.*;
+import Utility.Logger;
+import Utility.TimestampEvent;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class BlockController extends Subject implements Observer {
 
     private static BlockController obj;
-    private CompletableFuture[] blocks;
+    private CompletableFuture[] threads;
     private List<Event> queue;
-    private int n;
-    private int m;
+    private final int slots = 1;
 
     private BlockController() {
         queue = new ArrayList<>();
-        this.n = 0;
-        this.m = 5;
-        blocks = new CompletableFuture[5];
+        threads = new CompletableFuture[slots];
         attach(Center.getInstance());
     }
 
@@ -33,87 +34,56 @@ public class BlockController extends Subject implements Observer {
         return obj;
     }
 
-
     @Override
     public void update(Event event) {
         if(event.getTypeOfEvent() != TypeOfEvents.CREATE_BLOCK) {
             return;
         }
-        if(blocks.length < m) {
-            addBlock(event);
-        }else {
-            addQueue(event);
-            startMining();
-            popEventInBlocks();
-        }
-    }
-
-    // CREA IL BLOCCO
-    public static Block createNewBlock(Event event) {
-        Block newBlock = new Block(event, Blockchain.getPreviusHash());
-        newBlock.mining(Blockchain.difficulty);
-        return newBlock;
-    }
-
-    // UTILIZZATO NEL COMPLETABLEFUTURE
-    public Block getBlock() {
-        try {
-            Block newBlock = (Block) CompletableFuture.anyOf(blocks).get();
-            removeCompletableFuture();
-            return newBlock;
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return null;
-        }
-    }
-
-    // RIMOVIAMO IL COMPLETABLEFUTURE COMPLETATO
-    public void removeCompletableFuture() {
-        for(int i = 0; i < n; i++) {
-            System.out.println(blocks[i].isCancelled());
-            if(blocks[i].isDone()) {
-                blocks[i] = blocks[n-1];
-            }
-        }
-        blocks[n-1] = null;
-        n--;
-    }
-
-    // AVVIA L'OPERAZIONE DI MINING SUI BLOCCHI, NOTIFICA
-    private void startMining() {
-        if(n == m) {
-            Block block = getBlock();
-            System.out.println(block.hash);
-            //removeCompletableFuture();
-            Event newEvent = new Event(block, TypeOfEvents.BLOCKCHAIN);
-            notify(newEvent);
-        }
-    }
-
-
-    private void popEventInBlocks() {
-        if(queue.size() > 0)    addBlock(queue.remove(queue.size()-1));
-    }
-
-    // AGGIUNGE NELLA CODA
-    private void addQueue(Event event) {
+        Logger.out(true,"BLOCKCONTROLLER: Nuovo evento ricevuto, lo metto in coda");
         queue.add(event);
-    }
-
-    // AGGIUNGE NELL'ARRAY
-    public void addBlock(Event event) {
-        if(n < m) {
-            blocks[n++] = CompletableFuture.supplyAsync(() -> createNewBlock(event));
-            //System.out.println(blocks[n-1].isDone());
+        if(queue.size() == slots) {
+            extractEvents();
         }
-    }
-
-    public int getN() {
-        return blocks.length;
     }
 
     @Override
     public void update(int id, Event event) throws InterruptedException {
-        return;
     }
+
+    private void extractEvents() {
+        Logger.out(true,"BLOCKCONTROLLER: Coda piena, estraggo gli eventi. Avvio la procedura di mining degli eventi per la certificazione");
+        Event[] events = new Event[slots];
+        events = queue.toArray(events);
+        queue = new ArrayList<>();
+        String logs = new String();
+        for(Event event : events) {
+            logs += event.getEvent() + "\n";
+        }
+        Event eventiDaCertificare = new Event(logs, TypeOfEvents.BLOCKCHAIN);
+        startMining(eventiDaCertificare);
+    }
+
+    private void startMining(Event event) {
+        for(int i = 0; i < slots; i++) {
+            int thread_id = i;
+            threads[i] = CompletableFuture.supplyAsync(() -> createNewBlock(event, thread_id));
+        }
+        try {
+            Block block = (Block) CompletableFuture.anyOf(threads).get();
+            Logger.out(true,"BLOCKCONTROLLER: Blocco creato con successo, hash: " + block.hash+" invio alla blockchain");
+            Event insertBlock = new Event(block, TypeOfEvents.BLOCKCHAIN);
+            notify(insertBlock);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Block createNewBlock(Event event, int id) {
+        Block newBlock = new Block(event, Blockchain.getPreviusHash());
+        newBlock.mining(id, Blockchain.difficulty);
+        return newBlock;
+    }
+
+
+
 }

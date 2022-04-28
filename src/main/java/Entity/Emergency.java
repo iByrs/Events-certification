@@ -4,20 +4,29 @@ import Enum.*;
 import Observer.Subject;
 import Utility.Logger;
 import Utility.TimestampEvent;
-import com.mysql.cj.log.Log;
 
-public class Emergency extends Subject {
+public class Emergency extends Subject{
 
     // TIPO DI EVENTO GENERATO
     private TypeOfEmergency emergency;
     // TIMESTAMP DI CREAZIONE
     private String timestamp;
+    private String description;
+    private int id;
 
-    public Emergency(TypeOfEmergency emergency) {
-        Logger.out(false, "New emergency created. Notify the switchboard. Emergency ->" + emergency);
+    public Emergency(int id, TypeOfEmergency emergency) {
+        this.id = id;
         this.emergency = emergency;
         this.timestamp = TimestampEvent.getTime();
+        Logger.out(true, "Emergenza " + id + ": Nuova emergenza apparsa. Emergenza " + emergency);
         sendNotify();
+    }
+
+    public void sendNotify() {
+        attach(Switchboard.getInstance());
+        Event event = new Event(this, TypeOfEvents.EMERGENCY);
+        Logger.out(true,  "Emergenza " + id + ": Avverto il centralino");
+        notify(event);
     }
 
     public TypeOfEmergency getEmergency() {
@@ -35,11 +44,7 @@ public class Emergency extends Subject {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
-
-    public void sendNotify() {
-        attach(Switchboard.getInstance());
-        Event event = new Event(emergency, TypeOfEvents.EMERGENCY);
-        notify(event);
+    public int getId() {
+        return id;
     }
-
 }

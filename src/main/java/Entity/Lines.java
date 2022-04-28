@@ -41,45 +41,59 @@ public class Lines {
     }
 
     private void setupDoctorLines() {
-        if(role == true) {
-            lines.add("Visito l incidentato.");
-            lines.add("L incidentato è svenuto, battito basso. ");
-            lines.add("Procedo con l operazione ...");
+        if(role) {
+            lines.add("Visito l incidentato");
+            lines.add("L incidentato è svenuto, battito basso");
+            lines.add("Procedo con l operazione di ... , il paziente risponde ai segnali");
             lines.add("L incidentato si è ripreso");
         }else {
-            lines.add("Visito l incidentato.");
-            lines.add("Spoglio l incidentato per svolgere l operazione di rianimazione.");
-            lines.add("Procediamo con l operazione di soccorso.");
-            lines.add("Carico l incidentato sul lettino. Carichiamo sull auto.");
+            lines.add("Visito l incidentato");
+            lines.add("Spoglio l incidentato per svolgere l operazione di rianimazione");
+            lines.add("Procediamo con l operazione di soccorso");
+            lines.add("Carico l incidentato sul lettino. Carichiamo sull auto");
         }
     }
 
     private void setupPolicemanLines() {
-        if(role == true) {
-
+        if(role) {
+            lines.add("");
+            lines.add("");
+            lines.add("");
+            lines.add("");
         }else {
-
+            lines.add("");
+            lines.add("");
+            lines.add("");
+            lines.add("");
         }
     }
 
     private void setupFiremanLines() {
-        if(role == true) {
-
+        if(role) {
+            lines.add("");
+            lines.add("");
+            lines.add("");
+            lines.add("");
         }else {
-
+            lines.add("");
+            lines.add("");
+            lines.add("");
+            lines.add("");
         }
     }
 
     private void setupDriverLines() {
-        System.out.println("DRIVER");
-        lines.add("Mi dirigo verso il luogo del misfatto.");
-        lines.add("Arrivati nel luogo del misfatto. Spengo.");
-        lines.add("Mi dirigo alla centrale, per depositare i messaggi.");
-        lines.add("Arrivati alla centrale. Spengo i motori.");
+        lines.add("Mi dirigo verso il luogo del misfatto");
+        lines.add("Arrivati nel luogo del misfatto. Spengo");
+        lines.add("Mi dirigo alla centrale, per depositare i messaggi");
+        lines.add("Arrivati alla centrale. Spengo i motori");
     }
 
     public String getLine() {
         return entity.toString() + " " +lines.get(counter++);
     }
 
+    public List<String> getLines() {
+        return lines;
+    }
 }

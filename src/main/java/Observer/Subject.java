@@ -11,6 +11,7 @@ public class Subject {
     public void notify(Event event) {
         subscribers.forEach( x -> x.update(event));
     }
+
     public void notify(int id, Event event) {
         subscribers.forEach(x -> {
             try {

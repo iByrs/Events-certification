@@ -11,6 +11,7 @@ public class Team {
     private Worker entity1;
     private Worker entity2;
     private TypeOfJobs typeOfTeam;
+    private Emergency emergency;
     /*
     * Il metodo deve permettere di far interaggire le entità tra loro e nel frattempo inviare i messaggi
     * */
@@ -26,16 +27,19 @@ public class Team {
     }
 
     public void sendEvents() throws InterruptedException {
+        driver.sendEvent();
+        driver.sendEvent();
         for(int i = 0; i < 4; i++) {
-            driver.sendEvent();
             entity1.sendEvent();
             entity2.sendEvent();
             Thread.sleep(500);
         }
+        driver.sendEvent();
+        driver.sendEvent();
     }
 
     public String teamToString() {
-        String msg = "Team "+id+" "+entity1.toString()+" "+entity2.toString()+" "+driver.toString();
+        String msg = "Team "+id+" working on emergency "+ emergency.getEmergency() + " with members " +entity1.toString()+" "+entity2.toString()+" "+driver.toString();
         return msg;
     }
 
@@ -52,5 +56,12 @@ public class Team {
         return typeOfTeam;
     }
     public int getId() { return id; }
-    
+
+    public void setEmergency(Emergency emergency) {
+        this.emergency = emergency;
+    }
+
+    public Emergency getEmergency() {
+        return emergency;
+    }
 }

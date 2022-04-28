@@ -3,7 +3,7 @@ import Enum.TypeOfJobs;
 
 public class Entity {
 
-    private Long id;
+    private String id;
     private String name, surname;
     private TypeOfJobs job;
 
@@ -11,18 +11,18 @@ public class Entity {
 
     }
 
-    public Entity(Long id, String name, String surname, String job) {
+    public Entity(String id, String name, String surname, String job) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.job = TypeOfJobs.valueOf(job);
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,6 +51,7 @@ public class Entity {
     }
 
     public String toString() {
-        return "id:"+id+"_"+job+"_"+name+"_"+surname;
+        return id+", "+job+", "+name+", "+surname;
     }
+
 }

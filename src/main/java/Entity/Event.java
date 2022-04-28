@@ -4,11 +4,9 @@ import Utility.TimestampEvent;
 import Enum.*;
 
 public class Event {
-
     private Object message;
     private String timestamp;
     private TypeOfEvents type;
-
     public Event(Object message, TypeOfEvents type) {
         this.message = message;
         this.type = type;
@@ -16,7 +14,7 @@ public class Event {
     }
 
     public String getEvent() {
-        return message.toString() + " " + timestamp;
+        return timestamp + " " + message.toString();
     }
 
     public TypeOfEvents getTypeOfEvent() {
@@ -30,4 +28,6 @@ public class Event {
     public String getTimestamp() {
         return timestamp;
     }
+
+
 }

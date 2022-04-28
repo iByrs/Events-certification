@@ -23,7 +23,7 @@ public class Logger {
         char separator = File.separatorChar;
         dir = System.getProperty("user.dir")+separator+"src"+separator+"main"+separator+"resources"+separator+"logs"+separator+"logs.txt";
         fileName = Path.of(dir);
-        String log = TimestampEvent.getTime() + " -> "+ text+"\n";
+        String log = "["+TimestampEvent.getTime() + "] -> "+ text+".\n";
         try {
             Files.writeString(fileName, log, StandardOpenOption.APPEND);
         } catch (IOException e) {

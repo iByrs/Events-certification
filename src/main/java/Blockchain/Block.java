@@ -1,9 +1,6 @@
 package Blockchain;
 import Entity.*;
-import Enum.*;
 import Utility.TimestampEvent;
-
-import java.util.Date;
 
 public class Block {
 
@@ -12,8 +9,7 @@ public class Block {
     private String timestamp_creazione_blocco;
     private String timestamp_creazione_evento;
     private Event event;
-    private int nonce; // IMPOSTATA TUTTI I  VALORI POSSIBILI;
-    // MI FERMO QUANDO: INSERIAMO VALORI IN SEQUENZA, MI FERMO QUANDO L' HASH GENERATO INIZIA CON ZERO
+    private int nonce;
 
     public Block(Event event, String previousHash) {
         this.previousHash = previousHash;
@@ -29,14 +25,14 @@ public class Block {
                         timestamp_creazione_evento +
                         timestamp_creazione_evento +
                         nonce +
-                        event.getEvent()
+                        event.getEvent().toString()
         );
         return calculatedHash;
     }
 
-    public void mining(int difficulty) {
+    public void mining(int id, int difficulty) {
         String target = new String(new char[difficulty]).replace('\0', '0');
-
+        nonce = id;
         while(!hash.substring(0, difficulty).equals(target)) {
             nonce++;
             hash = hashing();
